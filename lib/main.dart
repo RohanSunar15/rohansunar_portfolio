@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_theme.dart';
 import 'package:rohansunar_portfolio/features/home/home.dart';
 
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
+
     return MaterialApp(
       title: 'Rohan Sunar\'s Portfolio',
       theme: AppTheme.lightTheme,
@@ -20,4 +23,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
