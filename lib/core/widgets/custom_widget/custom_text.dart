@@ -3,6 +3,7 @@ import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
+  final Color? textColor;
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
@@ -14,6 +15,7 @@ class CustomText extends StatelessWidget {
   const CustomText({
     super.key,
     required this.text,
+    this.textColor = AppColors.white,
     this.color,
     this.fontSize,
     this.fontWeight,
@@ -45,7 +47,7 @@ class CustomText extends StatelessWidget {
                           ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
                   )
                   : TextStyle(
-                    color: AppColors.white,
+                    color: textColor,
                     fontSize: fontSize,
                     fontWeight: fontWeight,
                   ),

@@ -1,67 +1,79 @@
 import 'package:flutter/material.dart';
+import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
-import 'package:rohansunar_portfolio/core/widgets/custom_widget//custom_text.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_button.dart';
+import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_text.dart';
 
 class NavbarSection extends StatelessWidget {
   const NavbarSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 35),
+      padding: EdgeInsets.symmetric(
+        vertical: SizeConfig.blockHeight * 2,
+        horizontal: SizeConfig.blockWidth * 4,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CustomText(
             text: 'RS',
-            fontSize: 30,
+            fontSize: SizeConfig.blockWidth * 2,
             fontWeight: FontWeight.bold,
             isGradient: true,
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             children: [
               CustomText(
                 text: 'About',
-                fontSize: 18,
+                fontSize: SizeConfig.blockWidth * 1.2,
                 color: AppColors.grey,
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
               ),
-              SizedBox(width: 40),
+              SizedBox(width: SizeConfig.blockWidth * 1.5),
               CustomText(
                 text: 'Skills',
-                fontSize: 18,
+                fontSize: SizeConfig.blockWidth * 1.2,
                 color: AppColors.grey,
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
               ),
-              SizedBox(width: 40),
+              SizedBox(width: SizeConfig.blockWidth * 1.5),
               CustomText(
                 text: 'Projects',
-                fontSize: 18,
+                fontSize: SizeConfig.blockWidth * 1.2,
                 color: AppColors.grey,
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
               ),
-              SizedBox(width: 40),
+              SizedBox(width: SizeConfig.blockWidth * 1.5),
               CustomText(
                 text: 'Contact',
-                fontSize: 18,
+                fontSize: SizeConfig.blockWidth * 1.2,
                 color: AppColors.grey,
-                padding: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
               ),
-              SizedBox(width: 40),
+              SizedBox(width: SizeConfig.blockWidth * 1.5),
               CustomButton(
+                padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                     colors: [AppColors.buttonBlue, AppColors.buttonPurple],
                   ),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(
+                    SizeConfig.blockWidth * 1.1,
+                  ),
                 ),
                 childWidget: Text(
                   'Resume',
-                  style: TextStyle(color: AppColors.black, fontSize: 18),
+                  style: TextStyle(
+                    color: AppColors.black,
+                    fontSize: SizeConfig.blockWidth * 1.2,
+                  ),
                 ),
               ),
             ],
