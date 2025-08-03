@@ -111,6 +111,7 @@ class SkillsSection extends StatelessWidget {
             ],
           ),
         ),
+        SizedBox(height: SizeConfig.blockHeight * 10),
       ],
     );
   }

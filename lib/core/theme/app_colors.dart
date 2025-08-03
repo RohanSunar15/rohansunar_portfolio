@@ -32,6 +32,7 @@ class AppColors {
 
   static const animatedTagBackgroundColor = Color(0xff181b20);
   static const customInfoCardBackgroundColor = Color(0xff1B1D23);
+  static const projectCardBackgroundColor = Color(0xff1A1A1D);
 
   static final transparent = Colors.transparent; // CTA gradient end
 }
