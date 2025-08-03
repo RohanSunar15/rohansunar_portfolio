@@ -15,6 +15,11 @@ class AppColors {
   static const softPurple = Color(0xff9F6EFF);
   static const successGreen = Color(0xff00D26A);
   static const vibrantOrange = Color(0xffFCA61F);
+  // Brighter Accent Colors
+  static const brightCyan = Color(0xff66e8ff);
+  static const brightSoftPurple = Color(0xffc6a6ff);
+  static const brightGreen = Color(0xff4df2a2);
+  static const brightOrange = Color(0xffffc266);
 
   // Gradient Highlights
   static const lightBlue = Color(0xff1E90FF); // Button hover/highlight
