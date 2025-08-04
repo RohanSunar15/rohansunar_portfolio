@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/aboutme/about_me.dart';
+import 'package:rohansunar_portfolio/features/home/presentation/contact/contact.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/intro/intro.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/navbar/navbar.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/projects/projects.dart';
@@ -27,6 +28,9 @@ class Home extends StatelessWidget {
 
             //Projects Section
             ProjectsSection(),
+
+            //Contact Section
+            ContactSection(),
           ],
         ),
       ),
