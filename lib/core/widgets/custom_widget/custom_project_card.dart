@@ -11,6 +11,7 @@ class ProjectCard extends StatefulWidget {
   final List<String> features;
   final List<String> tags;
   final Color color;
+  final VoidCallback onTap;
 
   const ProjectCard({
     super.key,
@@ -20,6 +21,7 @@ class ProjectCard extends StatefulWidget {
     required this.features,
     required this.tags,
     required this.color,
+    required this.onTap,
   });
 
   @override
@@ -84,7 +86,7 @@ class _ProjectCardState extends State<ProjectCard> {
                 SocialIconButton(
                   icon: FontAwesomeIcons.github,
                   iconColor: AppColors.white,
-                  onTap: () {},
+                  onTap: widget.onTap,
                 ),
               ],
             ),

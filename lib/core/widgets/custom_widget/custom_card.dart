@@ -84,7 +84,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                       fontSize: SizeConfig.blockWidth * 1.2,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 6),
                   Text(
                     widget.description,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(

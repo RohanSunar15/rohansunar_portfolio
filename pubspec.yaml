@@ -38,6 +38,8 @@ dependencies:
   flutter_lints: ^5.0.0
   flutter_bloc:
   bloc:
+  js: ^0.6.7
+
 
 
 

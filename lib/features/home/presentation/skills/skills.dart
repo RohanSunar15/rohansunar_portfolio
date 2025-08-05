@@ -57,7 +57,7 @@ class SkillsSection extends StatelessWidget {
                   textColor: AppColors.brightCyan,
                 ),
                 SkillBox(
-                  emoji: '⚡',
+                  emoji: '⚙️',
                   title: 'Backend & Services',
                   skills: ['Firebase', 'Node.js', 'Express', 'REST APIs'],
                   borderColor: AppColors.softPurple.withAlpha(100),

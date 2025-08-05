@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rohansunar_portfolio/core/config/section_scroller/section_scroller.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
@@ -6,6 +7,8 @@ import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_button.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_project_card.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_text.dart';
+import 'package:rohansunar_portfolio/features/bloc/home_bloc.dart';
+import 'package:rohansunar_portfolio/features/bloc/home_event.dart';
 
 class ProjectsSection extends StatefulWidget {
   const ProjectsSection({super.key});
@@ -56,6 +59,9 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             runSpacing: 20,
             children: [
               ProjectCard(
+                onTap: () {
+                  context.read<HomeBloc>().add(WhatsAppCloneGitHubLink());
+                },
                 icon: Icons.phone_android,
                 title: 'WhatsApp Clone',
                 description:
@@ -70,6 +76,9 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                 color: AppColors.primaryCyan,
               ),
               ProjectCard(
+                onTap: () {
+                  context.read<HomeBloc>().add(SpotifyCloneGitHubLink());
+                },
                 icon: Icons.music_note,
                 title: 'Spotify-like Music App',
                 description:
@@ -84,6 +93,9 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                 color: AppColors.softPurple,
               ),
               ProjectCard(
+                onTap: () {
+                  context.read<HomeBloc>().add(TodoAppGitHubLink());
+                },
                 icon: Icons.music_note,
                 title: 'Todo App',
                 description:
@@ -105,6 +117,9 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             child: SizedBox(
               width: SizeConfig.blockWidth * 20,
               child: CustomButton(
+                onPressed: () {
+                  context.read<HomeBloc>().add(OpenGithubProfile());
+                },
                 padding: EdgeInsets.symmetric(
                   vertical: SizeConfig.blockHeight * 3,
                   horizontal: SizeConfig.blockWidth * 2.5,

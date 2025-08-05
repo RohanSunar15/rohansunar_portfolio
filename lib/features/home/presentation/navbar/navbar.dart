@@ -10,6 +10,7 @@ import 'package:rohansunar_portfolio/core/widgets/animated_hover_text.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_button.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_text.dart';
 import 'package:rohansunar_portfolio/features/bloc/home_bloc.dart';
+import 'package:rohansunar_portfolio/features/bloc/home_event.dart';
 
 class NavbarSection extends StatefulWidget {
   const NavbarSection({super.key});
@@ -60,6 +61,11 @@ class _NavbarSectionState extends State<NavbarSection> {
                     fontWeight: FontWeight.bold,
                     isGradient: true,
                     isHoverable: false,
+                    onTap: () {
+                      context.read<HomeBloc>().add(
+                        ScrollToSectionEvent('home'),
+                      );
+                    },
                   ),
                 ),
 
@@ -132,6 +138,11 @@ class _NavbarSectionState extends State<NavbarSection> {
                       child: SizedBox(
                         width: SizeConfig.blockWidth * 8,
                         child: CustomButton(
+                          onPressed: () {
+                            context.read<HomeBloc>().add(
+                              DownloadResumeRequested(),
+                            );
+                          },
                           padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(

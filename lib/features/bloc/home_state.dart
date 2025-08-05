@@ -10,3 +10,7 @@ class ScrollToSectionState extends HomeState {
 
   ScrollToSectionState(this.section);
 }
+
+class ResumeDownloadInProgress extends HomeState {}
+
+class ResumeDownloaded extends HomeState {}
