@@ -16,12 +16,12 @@ class AboutMeSection extends StatelessWidget {
           children: [
             CustomText(
               text: 'About ',
-              fontSize: SizeConfig.blockWidth * 4.2,
+              fontSize: SizeConfig.blockWidth * 3,
               fontWeight: FontWeight.bold,
             ),
             CustomText(
               text: 'Me',
-              fontSize: SizeConfig.blockWidth * 4.2,
+              fontSize: SizeConfig.blockWidth * 3,
               fontWeight: FontWeight.bold,
               isGradient: true,
             ),
@@ -34,13 +34,21 @@ class AboutMeSection extends StatelessWidget {
           textColor: AppColors.white.withAlpha(190),
           textAlign: TextAlign.center,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: SizeConfig.blockWidth * 5,
+          runSpacing: SizeConfig.blockHeight * 5,
           children: [
-            SizedBox(
-              height: SizeConfig.blockHeight * 50,
-              width: SizeConfig.blockWidth * 50,
-
+            Container(
+              height: SizeConfig.blockHeight * 61.1,
+              width: SizeConfig.blockWidth * 38,
+              padding: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockHeight * 3,
+              ),
+              margin: EdgeInsets.symmetric(
+                vertical: SizeConfig.blockWidth * 2.5,
+                horizontal: SizeConfig.blockWidth * 5,
+              ),
               //Description About me
               child: Column(
                 children: [
@@ -55,9 +63,9 @@ class AboutMeSection extends StatelessWidget {
                     fontSize: SizeConfig.blockWidth * 1,
                     textColor: Colors.grey,
                   ),
-                  SizedBox(height: SizeConfig.blockHeight * 5),
+                  SizedBox(height: SizeConfig.blockHeight * 2),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         children: [
@@ -73,7 +81,7 @@ class AboutMeSection extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: SizeConfig.blockWidth * 15),
+                      SizedBox(width: SizeConfig.blockWidth * 12),
                       Column(
                         children: [
                           CustomText(
@@ -93,7 +101,6 @@ class AboutMeSection extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(width: SizeConfig.blockWidth * 2),
 
             // Info Card
             Column(
@@ -103,8 +110,8 @@ class AboutMeSection extends StatelessWidget {
                   iconColor: AppColors.primaryCyan,
                   iconBackgroundColor: AppColors.primaryCyan.withAlpha(25),
                   title: 'Education',
-                  height: SizeConfig.blockHeight * 20,
-                  width: SizeConfig.blockWidth * 35,
+                  height: SizeConfig.blockHeight * 16,
+                  width: SizeConfig.blockWidth * 45,
                   description:
                       'Bachelor\'s degree in Computer Science with a strong foundation in software development principles, algorithms, and system design.',
                 ),
@@ -112,8 +119,8 @@ class AboutMeSection extends StatelessWidget {
                   icon: Icons.phone_android_outlined,
                   iconColor: AppColors.softPurple,
                   iconBackgroundColor: AppColors.softPurple.withAlpha(25),
-                  height: SizeConfig.blockHeight * 20,
-                  width: SizeConfig.blockWidth * 35,
+                  height: SizeConfig.blockHeight * 16,
+                  width: SizeConfig.blockWidth * 45,
                   title: 'Mobile App Development',
                   description:
                       'Specialized in Flutter framework for cross-platform mobile app development, creating apps that run seamlessly on both iOS and Android platforms.',
@@ -122,8 +129,8 @@ class AboutMeSection extends StatelessWidget {
                   icon: Icons.code_outlined,
                   iconColor: AppColors.successGreen,
                   iconBackgroundColor: AppColors.successGreen.withAlpha(25),
-                  height: SizeConfig.blockHeight * 20,
-                  width: SizeConfig.blockWidth * 35,
+                  height: SizeConfig.blockHeight * 16,
+                  width: SizeConfig.blockWidth * 45,
                   title: 'Full-Stack Skills',
                   description:
                       'Experience with both frontend and backend technologies, including Firebase, Node.js, Express, and various database solutions.',
@@ -132,7 +139,7 @@ class AboutMeSection extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: SizeConfig.blockWidth * 2),
+        SizedBox(width: SizeConfig.blockWidth * 6),
       ],
     );
   }

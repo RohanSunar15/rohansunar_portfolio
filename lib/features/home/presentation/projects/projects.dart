@@ -30,12 +30,12 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             children: [
               CustomText(
                 text: 'Featured ',
-                fontSize: SizeConfig.blockWidth * 4.2,
+                fontSize: SizeConfig.blockWidth * 3,
                 fontWeight: FontWeight.bold,
               ),
               CustomText(
                 text: 'Projects',
-                fontSize: SizeConfig.blockWidth * 4.2,
+                fontSize: SizeConfig.blockWidth * 3,
                 fontWeight: FontWeight.bold,
                 isGradient: true,
               ),

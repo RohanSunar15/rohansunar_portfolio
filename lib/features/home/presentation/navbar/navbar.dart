@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
@@ -20,121 +22,144 @@ class _NavbarSectionState extends State<NavbarSection> {
   Widget build(BuildContext context) {
     SizeConfig.init(context);
 
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: SizeConfig.blockHeight * 2,
-        horizontal: SizeConfig.blockWidth * 4,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          AnimatedHoverText(
-            duration: Duration(milliseconds: 300),
-            child: CustomText(
-              text: 'RKS',
-              fontSize: SizeConfig.blockWidth * 2,
-              fontWeight: FontWeight.bold,
-              isGradient: true,
-              isHoverable: false,
+    return ClipRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 1000.0, sigmaY: 1000.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockHeight * 2.3,
+            horizontal: SizeConfig.blockWidth * 4,
+          ),
+          decoration: BoxDecoration(
+            color: AppColors.transparent.withAlpha(12),
+            border: Border(
+              bottom: BorderSide(
+                color: AppColors.grey.withAlpha(100),
+                width: 1.0,
+              ),
             ),
           ),
 
-          const Spacer(),
-          Row(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               AnimatedHoverText(
+                duration: Duration(milliseconds: 300),
                 child: CustomText(
-                  text: 'About',
-                  fontSize: SizeConfig.blockWidth * 1.2,
-                  color: AppColors.grey,
-                  padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
-                  isHoverable: true,
+                  text: 'RKS',
+                  fontSize: SizeConfig.blockWidth * 2,
+                  fontWeight: FontWeight.bold,
+                  isGradient: true,
+                  isHoverable: false,
                 ),
               ),
-              SizedBox(width: SizeConfig.blockWidth * 1.5),
-              AnimatedHoverText(
-                child: CustomText(
-                  text: 'Skills',
-                  fontSize: SizeConfig.blockWidth * 1.2,
-                  color: AppColors.grey,
-                  padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
-                  isHoverable: true,
-                ),
-              ),
-              SizedBox(width: SizeConfig.blockWidth * 1.5),
-              AnimatedHoverText(
-                child: CustomText(
-                  text: 'Projects',
-                  fontSize: SizeConfig.blockWidth * 1.2,
-                  color: AppColors.grey,
-                  padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
-                  isHoverable: true,
-                ),
-              ),
-              SizedBox(width: SizeConfig.blockWidth * 1.5),
-              AnimatedHoverText(
-                child: CustomText(
-                  text: 'Contact',
-                  fontSize: SizeConfig.blockWidth * 1.2,
-                  color: AppColors.grey,
-                  padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
-                  isHoverable: true,
-                ),
-              ),
-              SizedBox(width: SizeConfig.blockWidth * 1.5),
-              MouseRegion(
-                onEnter: (_) => setState(() => _isHovered = true),
-                onExit: (_) => setState(() => _isHovered = false),
-                child: SizedBox(
-                  width: SizeConfig.blockWidth * 8,
-                  child: CustomButton(
-                    padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [AppColors.buttonBlue, AppColors.buttonPurple],
-                      ),
-                      boxShadow:
-                          _isHovered
-                              ? [
-                                BoxShadow(
-                                  color: Colors.cyanAccent.withAlpha(150),
-                                  blurRadius: 40,
-                                  spreadRadius: 1,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ]
-                              : [],
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.blockWidth * 1.1,
-                      ),
-                    ),
-                    childWidget: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FaIcon(
-                          FontAwesomeIcons.download,
-                          color: _isHovered ? AppColors.white : AppColors.black,
-                          size: SizeConfig.blockWidth * 1,
-                        ),
-                        SizedBox(width: SizeConfig.blockWidth * 0.5),
-                        Text(
-                          'Resume',
-                          style: TextStyle(
-                            fontSize: SizeConfig.blockWidth * 0.9,
-                            color:
-                                _isHovered ? AppColors.white : AppColors.black,
-                          ),
-                        ),
-                      ],
+
+              const Spacer(),
+              Row(
+                children: [
+                  AnimatedHoverText(
+                    child: CustomText(
+                      text: 'About',
+                      fontSize: SizeConfig.blockWidth * 1.2,
+                      color: AppColors.grey,
+                      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
+                      isHoverable: true,
                     ),
                   ),
-                ),
+                  SizedBox(width: SizeConfig.blockWidth * 1.5),
+                  AnimatedHoverText(
+                    child: CustomText(
+                      text: 'Skills',
+                      fontSize: SizeConfig.blockWidth * 1.2,
+                      color: AppColors.grey,
+                      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
+                      isHoverable: true,
+                    ),
+                  ),
+                  SizedBox(width: SizeConfig.blockWidth * 1.5),
+                  AnimatedHoverText(
+                    child: CustomText(
+                      text: 'Projects',
+                      fontSize: SizeConfig.blockWidth * 1.2,
+                      color: AppColors.grey,
+                      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
+                      isHoverable: true,
+                    ),
+                  ),
+                  SizedBox(width: SizeConfig.blockWidth * 1.5),
+                  AnimatedHoverText(
+                    child: CustomText(
+                      text: 'Contact',
+                      fontSize: SizeConfig.blockWidth * 1.2,
+                      color: AppColors.grey,
+                      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.8),
+                      isHoverable: true,
+                    ),
+                  ),
+                  SizedBox(width: SizeConfig.blockWidth * 1.5),
+                  MouseRegion(
+                    onEnter: (_) => setState(() => _isHovered = true),
+                    onExit: (_) => setState(() => _isHovered = false),
+                    child: SizedBox(
+                      width: SizeConfig.blockWidth * 8,
+                      child: CustomButton(
+                        padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              AppColors.buttonBlue,
+                              AppColors.buttonPurple,
+                            ],
+                          ),
+                          boxShadow:
+                              _isHovered
+                                  ? [
+                                    BoxShadow(
+                                      color: Colors.cyanAccent.withAlpha(150),
+                                      blurRadius: 40,
+                                      spreadRadius: 1,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ]
+                                  : [],
+                          borderRadius: BorderRadius.circular(
+                            SizeConfig.blockWidth * 1.1,
+                          ),
+                        ),
+                        childWidget: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FaIcon(
+                              FontAwesomeIcons.download,
+                              color:
+                                  _isHovered
+                                      ? AppColors.white
+                                      : AppColors.black,
+                              size: SizeConfig.blockWidth * 1,
+                            ),
+                            SizedBox(width: SizeConfig.blockWidth * 0.5),
+                            Text(
+                              'Resume',
+                              style: TextStyle(
+                                fontSize: SizeConfig.blockWidth * 0.9,
+                                color:
+                                    _isHovered
+                                        ? AppColors.white
+                                        : AppColors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
