@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
+import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 
 class CustomInfoCard extends StatefulWidget {
   final IconData icon;
@@ -70,7 +71,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                 size: SizeConfig.blockWidth * 2,
               ),
             ),
-            const SizedBox(width: 16),
+            SizedBox(width: SizeConfig.blockWidth * 2),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,7 +79,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                   Text(
                     widget.title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: Colors.white,
+                      color: AppColors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: SizeConfig.blockWidth * 1.2,
                     ),
@@ -87,7 +88,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                   Text(
                     widget.description,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.grey[400],
+                      color: AppColors.white.withAlpha(150),
                       fontSize: SizeConfig.blockWidth * 1,
                     ),
                   ),
