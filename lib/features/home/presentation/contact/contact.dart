@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rohansunar_portfolio/core/config/section_scroller/section_scroller.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 import 'package:rohansunar_portfolio/core/widgets/contact_me_form_section.dart';
@@ -21,6 +22,7 @@ class _ContactSectionState extends State<ContactSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: SectionKeys.contactKey,
       color: AppColors.white.withAlpha(10),
       padding: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 2),
       child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rohansunar_portfolio/core/config/section_scroller/section_scroller.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_skill_card.dart';
@@ -11,6 +12,7 @@ class SkillsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: SectionKeys.skillsKey,
       color: AppColors.white.withAlpha(10),
       padding: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 0.5),
       child: Column(

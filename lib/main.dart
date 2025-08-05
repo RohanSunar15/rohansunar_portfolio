@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_theme.dart';
+import 'package:rohansunar_portfolio/features/bloc/home_bloc.dart';
 import 'package:rohansunar_portfolio/features/home/home.dart';
 
 void main() {
@@ -16,10 +18,10 @@ class MyApp extends StatelessWidget {
     SizeConfig.init(context);
 
     return MaterialApp(
-      title: 'Rohan Sunar\'s Portfolio',
+      title: 'Rohan Sunar',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: BlocProvider(create: (context) => HomeBloc(), child: Home()),
     );
   }
 }

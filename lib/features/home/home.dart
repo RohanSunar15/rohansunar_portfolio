@@ -15,9 +15,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Scrollable main content (with top padding to prevent overlap)
           Padding(
-            padding: const EdgeInsets.only(top: 80), // height of navbar
+            padding: const EdgeInsets.only(top: 80),
             child: SingleChildScrollView(
               child: Column(
                 children: [
