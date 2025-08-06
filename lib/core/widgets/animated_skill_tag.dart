@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 
 class AnimatedSkillTag extends StatefulWidget {
@@ -48,13 +49,22 @@ class _AnimatedSkillTagState extends State<AnimatedSkillTag>
         );
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 11),
+        padding: EdgeInsets.symmetric(
+          horizontal: SizeConfig.blockWidth * 0.5,
+          vertical: SizeConfig.blockHeight * 0.5,
+        ),
         decoration: BoxDecoration(
           color: AppColors.animatedTagBackgroundColor.withAlpha(200),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(color: Colors.grey, width: 0.5),
         ),
-        child: Text(widget.label, style: TextStyle(color: widget.color)),
+        child: Text(
+          widget.label,
+          style: TextStyle(
+            color: widget.color,
+            fontSize: SizeConfig.blockWidth * 2,
+          ),
+        ),
       ),
     );
   }

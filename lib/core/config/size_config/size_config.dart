@@ -14,4 +14,10 @@ class SizeConfig {
     blockWidth = screenWidth / 100;
     blockHeight = screenHeight / 100;
   }
+
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 800;
+
+  static bool isWeb(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 1200;
 }

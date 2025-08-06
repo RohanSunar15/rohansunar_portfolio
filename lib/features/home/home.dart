@@ -13,38 +13,32 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 80),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  //Intro Section,
-                  const IntroSection(),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(80),
+        child: const NavbarSection(),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //Intro Section,
+            const IntroSection(),
 
-                  // About Me Section
-                  AboutMeSection(),
+            // About Me Section
+            AboutMeSection(),
 
-                  // Skills Section
-                  SkillsSection(),
+            // Skills Section
+            SkillsSection(),
 
-                  //Projects Section
-                  ProjectsSection(),
+            //Projects Section
+            ProjectsSection(),
 
-                  //Contact Section
-                  ContactSection(),
+            //Contact Section
+            ContactSection(),
 
-                  // Footer Section
-                  FooterSection(),
-                ],
-              ),
-            ),
-          ),
-
-          // Fixed Navbar
-          const Positioned(top: 0, left: 0, right: 0, child: NavbarSection()),
-        ],
+            // Footer Section
+            FooterSection(),
+          ],
+        ),
       ),
     );
   }

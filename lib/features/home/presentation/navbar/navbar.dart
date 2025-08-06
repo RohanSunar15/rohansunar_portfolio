@@ -24,8 +24,6 @@ class _NavbarSectionState extends State<NavbarSection> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig.init(context);
-
     return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
         if (state is ScrollToSectionState) {
