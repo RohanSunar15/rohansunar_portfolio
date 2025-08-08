@@ -22,150 +22,338 @@ class _ProjectsSectionState extends State<ProjectsSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      key: SectionKeys.projectsKey,
-      padding: EdgeInsets.symmetric(
-        vertical: SizeConfig.blockHeight * 2,
-        horizontal: SizeConfig.blockWidth * 2,
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return SizeConfig.isMobile(context)
+        ? Container(
+          key: SectionKeys.projectsKey,
+          padding: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockHeight * 2,
+            horizontal: SizeConfig.blockWidth * 2,
+          ),
+          child: Column(
             children: [
-              CustomText(
-                text: 'Featured ',
-                fontSize: SizeConfig.blockWidth * 3,
-                fontWeight: FontWeight.bold,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: 'Featured ',
+                    fontSize: SizeConfig.blockWidth * 5,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  CustomText(
+                    text: 'Projects',
+                    fontSize: SizeConfig.blockWidth * 5,
+                    fontWeight: FontWeight.bold,
+                    isGradient: true,
+                  ),
+                ],
               ),
               CustomText(
-                text: 'Projects',
-                fontSize: SizeConfig.blockWidth * 3,
-                fontWeight: FontWeight.bold,
-                isGradient: true,
+                text:
+                    'A showcase of my mobile development work, featuring cross-platform \napplications built with Flutter and modern technologies.',
+                fontSize: SizeConfig.blockWidth * 2,
+                textColor: AppColors.white.withAlpha(190),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: SizeConfig.blockHeight * 2),
+              Wrap(
+                spacing: 5,
+                runSpacing: 5,
+                children: [
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(WhatsAppCloneGitHubLink());
+                    },
+                    icon: Icons.phone_android,
+                    title: 'WhatsApp Clone',
+                    description:
+                        'A full-featured chat app with real-time messaging, user auth, and media sharing.',
+                    features: [
+                      'Real-time messaging',
+                      'Media sharing',
+                      'User authentication',
+                      'Group chats',
+                    ],
+                    tags: ['Flutter', 'Firebase', 'Dart', 'Real-time'],
+                    tagFontSize: SizeConfig.blockWidth * 2,
+                    color: AppColors.primaryCyan,
+                    containerWidth: 200,
+                    iconSize: SizeConfig.blockWidth * 3,
+                    titleFontSize: SizeConfig.blockWidth * 3,
+                    descFontSize: SizeConfig.blockWidth * 2,
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    githubIconPadding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockWidth * 1,
+                      horizontal: SizeConfig.blockWidth * 1,
+                    ),
+                    bulletSize: SizeConfig.blockWidth * 2,
+                    featureFontSize: SizeConfig.blockWidth * 2,
+                  ),
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(SpotifyCloneGitHubLink());
+                    },
+                    icon: Icons.music_note,
+                    title: 'Spotify_Clone',
+                    description:
+                        'A modern UI music app with playlist and audio control functionality.',
+                    features: [
+                      'Music streaming',
+                      'Modern UI',
+                      'Playlist management',
+                      'Audio controls',
+                    ],
+                    tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
+                    tagFontSize: SizeConfig.blockWidth * 2,
+                    color: AppColors.softPurple,
+                    containerWidth: 200,
+                    iconSize: SizeConfig.blockWidth * 3,
+                    titleFontSize: SizeConfig.blockWidth * 3,
+                    descFontSize: SizeConfig.blockWidth * 2,
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    githubIconPadding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockWidth * 1,
+                      horizontal: SizeConfig.blockWidth * 1,
+                    ),
+                    bulletSize: SizeConfig.blockWidth * 2,
+                    featureFontSize: SizeConfig.blockWidth * 2,
+                  ),
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(TodoAppGitHubLink());
+                    },
+                    icon: Icons.music_note,
+                    title: 'Todo App',
+                    description:
+                        'A task management application with local storage using Hive and SharedPreferences, featuring task categorization and reminders.',
+                    features: [
+                      'Task management',
+                      'Local storage',
+                      'Categories',
+                      'Reminders',
+                    ],
+                    tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
+                    tagFontSize: SizeConfig.blockWidth * 2,
+                    color: AppColors.successGreen,
+                    containerWidth: 200,
+                    iconSize: SizeConfig.blockWidth * 3,
+                    titleFontSize: SizeConfig.blockWidth * 3,
+                    descFontSize: SizeConfig.blockWidth * 2,
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    githubIconPadding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockWidth * 1,
+                      horizontal: SizeConfig.blockWidth * 1,
+                    ),
+                    bulletSize: SizeConfig.blockWidth * 2,
+                    featureFontSize: SizeConfig.blockWidth * 2,
+                  ),
+                ],
+              ),
+              MouseRegion(
+                onEnter: (_) => setState(() => _isHovered = true),
+                onExit: (_) => setState(() => _isHovered = false),
+                child: SizedBox(
+                  width: SizeConfig.blockWidth * 40,
+                  child: CustomButton(
+                    onPressed: () {
+                      context.read<HomeBloc>().add(OpenGithubProfile());
+                    },
+                    padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockHeight * 3,
+                      horizontal: SizeConfig.blockWidth * 2.5,
+                    ),
+                    decoration: BoxDecoration(
+                      boxShadow:
+                          _isHovered
+                              ? [
+                                BoxShadow(
+                                  color: Colors.cyanAccent.withAlpha(150),
+                                  blurRadius: 40,
+                                  spreadRadius: 1,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ]
+                              : [],
+                    ),
+                    borderSideColor:
+                        _isHovered ? AppColors.primaryCyan : AppColors.grey,
+                    borderRadius: 15,
+                    backgroundColor:
+                        _isHovered
+                            ? AppColors.softPurple
+                            : AppColors.transparent,
+                    overlayColor: AppColors.transparent,
+                    childWidget: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.github,
+                          color: _isHovered ? AppColors.black : AppColors.white,
+                          size: SizeConfig.blockWidth * 3,
+                        ),
+                        SizedBox(width: SizeConfig.blockWidth * 2),
+                        Text(
+                          'View all Projects on GitHub',
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockWidth * 2,
+                            color:
+                                _isHovered ? AppColors.black : AppColors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-          CustomText(
-            text:
-                'A showcase of my mobile development work, featuring cross-platform \napplications built with Flutter and modern technologies.',
-            fontSize: SizeConfig.blockWidth * 1.2,
-            textColor: AppColors.white.withAlpha(190),
-            textAlign: TextAlign.center,
+        )
+        : Container(
+          key: SectionKeys.projectsKey,
+          padding: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockHeight * 2,
+            horizontal: SizeConfig.blockWidth * 2,
           ),
-          SizedBox(height: SizeConfig.blockHeight * 2),
-          Wrap(
-            spacing: 20,
-            runSpacing: 20,
+          child: Column(
             children: [
-              ProjectCard(
-                onTap: () {
-                  context.read<HomeBloc>().add(WhatsAppCloneGitHubLink());
-                },
-                icon: Icons.phone_android,
-                title: 'WhatsApp Clone',
-                description:
-                    'A full-featured chat app with real-time messaging, user auth, and media sharing.',
-                features: [
-                  'Real-time messaging',
-                  'Media sharing',
-                  'User authentication',
-                  'Group chats',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomText(
+                    text: 'Featured ',
+                    fontSize: SizeConfig.blockWidth * 3,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  CustomText(
+                    text: 'Projects',
+                    fontSize: SizeConfig.blockWidth * 3,
+                    fontWeight: FontWeight.bold,
+                    isGradient: true,
+                  ),
                 ],
-                tags: ['Flutter', 'Firebase', 'Dart', 'Real-time'],
-                color: AppColors.primaryCyan,
               ),
-              ProjectCard(
-                onTap: () {
-                  context.read<HomeBloc>().add(SpotifyCloneGitHubLink());
-                },
-                icon: Icons.music_note,
-                title: 'Spotify-like Music App',
-                description:
-                    'A modern UI music app with playlist and audio control functionality.',
-                features: [
-                  'Music streaming',
-                  'Modern UI',
-                  'Playlist management',
-                  'Audio controls',
-                ],
-                tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
-                color: AppColors.softPurple,
+              CustomText(
+                text:
+                    'A showcase of my mobile development work, featuring cross-platform \napplications built with Flutter and modern technologies.',
+                fontSize: SizeConfig.blockWidth * 1.2,
+                textColor: AppColors.white.withAlpha(190),
+                textAlign: TextAlign.center,
               ),
-              ProjectCard(
-                onTap: () {
-                  context.read<HomeBloc>().add(TodoAppGitHubLink());
-                },
-                icon: Icons.music_note,
-                title: 'Todo App',
-                description:
-                    'A task management application with local storage using Hive and SharedPreferences, featuring task categorization and reminders.',
-                features: [
-                  'Task management',
-                  'Local storage',
-                  'Categories',
-                  'Reminders',
+              SizedBox(height: SizeConfig.blockHeight * 2),
+              Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                children: [
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(WhatsAppCloneGitHubLink());
+                    },
+                    icon: Icons.phone_android,
+                    title: 'WhatsApp Clone',
+                    description:
+                        'A full-featured chat app with real-time messaging, user auth, and media sharing.',
+                    features: [
+                      'Real-time messaging',
+                      'Media sharing',
+                      'User authentication',
+                      'Group chats',
+                    ],
+                    tags: ['Flutter', 'Firebase', 'Dart', 'Real-time'],
+                    color: AppColors.primaryCyan,
+                  ),
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(SpotifyCloneGitHubLink());
+                    },
+                    icon: Icons.music_note,
+                    title: 'Spotify-like Music App',
+                    description:
+                        'A modern UI music app with playlist and audio control functionality.',
+                    features: [
+                      'Music streaming',
+                      'Modern UI',
+                      'Playlist management',
+                      'Audio controls',
+                    ],
+                    tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
+                    color: AppColors.softPurple,
+                  ),
+                  ProjectCard(
+                    onTap: () {
+                      context.read<HomeBloc>().add(TodoAppGitHubLink());
+                    },
+                    icon: Icons.music_note,
+                    title: 'Todo App',
+                    description:
+                        'A task management application with local storage using Hive and SharedPreferences, featuring task categorization and reminders.',
+                    features: [
+                      'Task management',
+                      'Local storage',
+                      'Categories',
+                      'Reminders',
+                    ],
+                    tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
+                    color: AppColors.successGreen,
+                  ),
                 ],
-                tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
-                color: AppColors.successGreen,
+              ),
+              MouseRegion(
+                onEnter: (_) => setState(() => _isHovered = true),
+                onExit: (_) => setState(() => _isHovered = false),
+                child: SizedBox(
+                  width: SizeConfig.blockWidth * 20,
+                  child: CustomButton(
+                    onPressed: () {
+                      context.read<HomeBloc>().add(OpenGithubProfile());
+                    },
+                    padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.blockHeight * 3,
+                      horizontal: SizeConfig.blockWidth * 2.5,
+                    ),
+                    decoration: BoxDecoration(
+                      boxShadow:
+                          _isHovered
+                              ? [
+                                BoxShadow(
+                                  color: Colors.cyanAccent.withAlpha(150),
+                                  blurRadius: 40,
+                                  spreadRadius: 1,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ]
+                              : [],
+                    ),
+                    borderSideColor:
+                        _isHovered ? AppColors.primaryCyan : AppColors.grey,
+                    borderRadius: 15,
+                    backgroundColor:
+                        _isHovered
+                            ? AppColors.softPurple
+                            : AppColors.transparent,
+                    overlayColor: AppColors.transparent,
+                    childWidget: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.github,
+                          color: _isHovered ? AppColors.black : AppColors.white,
+                          size: SizeConfig.blockWidth * 1.5,
+                        ),
+                        SizedBox(width: SizeConfig.blockWidth * 1),
+                        Text(
+                          'View all Projects on GitHub',
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockWidth * 0.9,
+                            color:
+                                _isHovered ? AppColors.black : AppColors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-          MouseRegion(
-            onEnter: (_) => setState(() => _isHovered = true),
-            onExit: (_) => setState(() => _isHovered = false),
-            child: SizedBox(
-              width: SizeConfig.blockWidth * 20,
-              child: CustomButton(
-                onPressed: () {
-                  context.read<HomeBloc>().add(OpenGithubProfile());
-                },
-                padding: EdgeInsets.symmetric(
-                  vertical: SizeConfig.blockHeight * 3,
-                  horizontal: SizeConfig.blockWidth * 2.5,
-                ),
-                decoration: BoxDecoration(
-                  boxShadow:
-                      _isHovered
-                          ? [
-                            BoxShadow(
-                              color: Colors.cyanAccent.withAlpha(150),
-                              blurRadius: 40,
-                              spreadRadius: 1,
-                              offset: const Offset(0, 4),
-                            ),
-                          ]
-                          : [],
-                ),
-                borderSideColor:
-                    _isHovered ? AppColors.primaryCyan : AppColors.grey,
-                borderRadius: 15,
-                backgroundColor:
-                    _isHovered ? AppColors.softPurple : AppColors.transparent,
-                overlayColor: AppColors.transparent,
-                childWidget: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.github,
-                      color: _isHovered ? AppColors.black : AppColors.white,
-                      size: SizeConfig.blockWidth * 1.5,
-                    ),
-                    SizedBox(width: SizeConfig.blockWidth * 1),
-                    Text(
-                      'View all Projects on GitHub',
-                      style: TextStyle(
-                        fontSize: SizeConfig.blockWidth * 0.9,
-                        color: _isHovered ? AppColors.black : AppColors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+        );
   }
 }

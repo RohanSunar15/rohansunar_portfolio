@@ -10,6 +10,10 @@ class CustomInfoCard extends StatefulWidget {
   final double? height;
   final double? width;
   final Color? iconColor;
+  final double? iconSize;
+  final double? titleFontSize;
+  final double? descFontSize;
+  final EdgeInsetsGeometry? padding;
 
   const CustomInfoCard({
     super.key,
@@ -20,6 +24,10 @@ class CustomInfoCard extends StatefulWidget {
     this.height,
     this.width,
     this.iconColor,
+    this.iconSize,
+    this.titleFontSize,
+    this.descFontSize,
+    this.padding,
   });
 
   @override
@@ -40,7 +48,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
         height: widget.height,
         width: widget.width,
         margin: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 1.5),
-        padding: EdgeInsets.all(SizeConfig.blockWidth * 1),
+        padding: widget.padding ?? EdgeInsets.all(SizeConfig.blockWidth * 1),
         decoration: BoxDecoration(
           color: const Color(0xFF1E1E1E),
           borderRadius: BorderRadius.circular(16),
@@ -68,7 +76,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
               child: Icon(
                 widget.icon,
                 color: widget.iconColor,
-                size: SizeConfig.blockWidth * 2,
+                size: widget.iconSize,
               ),
             ),
             SizedBox(width: SizeConfig.blockWidth * 2),
@@ -81,7 +89,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: AppColors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.blockWidth * 1.2,
+                      fontSize: widget.titleFontSize,
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -89,7 +97,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
                     widget.description,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: AppColors.white.withAlpha(150),
-                      fontSize: SizeConfig.blockWidth * 1,
+                      fontSize: widget.descFontSize,
                     ),
                   ),
                 ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rohansunar_portfolio/core/config/size_config/size_config.dart';
 import 'package:rohansunar_portfolio/core/theme/app_colors.dart';
 
 class SocialIconButton extends StatefulWidget {
@@ -6,6 +7,8 @@ class SocialIconButton extends StatefulWidget {
   final Color? iconColor;
   final double? iconSize;
   final VoidCallback onTap;
+  final EdgeInsetsGeometry? margin;
+  final EdgeInsetsGeometry? padding;
 
   const SocialIconButton({
     super.key,
@@ -13,6 +16,8 @@ class SocialIconButton extends StatefulWidget {
     this.iconColor,
     this.iconSize,
     required this.onTap,
+    this.margin = const EdgeInsets.symmetric(horizontal: 8),
+    this.padding = const EdgeInsets.symmetric(horizontal: 8),
   });
 
   @override
@@ -31,8 +36,8 @@ class _SocialIconButtonState extends State<SocialIconButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          margin: const EdgeInsets.symmetric(horizontal: 8),
-          padding: const EdgeInsets.all(12),
+          margin: widget.margin,
+          padding: widget.padding,
           decoration: BoxDecoration(
             color: _isHovered ? AppColors.softPurple : Colors.transparent,
             borderRadius: BorderRadius.circular(12),
@@ -40,10 +45,16 @@ class _SocialIconButtonState extends State<SocialIconButton> {
               color: _isHovered ? AppColors.transparent : AppColors.white,
             ),
           ),
-          child: Icon(
-            widget.icon,
-            color: widget.iconColor,
-            size: widget.iconSize,
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: SizeConfig.blockWidth * 0.5,
+              vertical: SizeConfig.blockWidth * 1,
+            ),
+            child: Icon(
+              widget.icon,
+              color: widget.iconColor,
+              size: widget.iconSize,
+            ),
           ),
         ),
       ),

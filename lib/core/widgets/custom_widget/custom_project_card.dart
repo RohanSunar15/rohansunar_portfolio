@@ -12,6 +12,15 @@ class ProjectCard extends StatefulWidget {
   final List<String> tags;
   final Color color;
   final VoidCallback onTap;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? githubIconPadding;
+  final double? tagFontSize;
+  final double? titleFontSize;
+  final double? descFontSize;
+  final double? iconSize;
+  final double? containerWidth;
+  final double? bulletSize;
+  final double? featureFontSize;
 
   const ProjectCard({
     super.key,
@@ -22,6 +31,15 @@ class ProjectCard extends StatefulWidget {
     required this.tags,
     required this.color,
     required this.onTap,
+    this.padding,
+    this.githubIconPadding,
+    this.tagFontSize,
+    this.titleFontSize,
+    this.descFontSize,
+    this.iconSize,
+    this.containerWidth,
+    this.bulletSize,
+    this.featureFontSize,
   });
 
   @override
@@ -40,10 +58,10 @@ class _ProjectCardState extends State<ProjectCard> {
         duration: const Duration(milliseconds: 300),
         padding: EdgeInsets.all(SizeConfig.blockWidth * 3),
         margin: EdgeInsets.symmetric(
-          vertical: SizeConfig.blockHeight * 2.5,
-          horizontal: SizeConfig.blockWidth * 1.5,
+          vertical: SizeConfig.blockHeight * 1,
+          horizontal: SizeConfig.blockWidth * 0.5,
         ),
-        width: 400,
+        width: widget.containerWidth ?? 400,
         decoration: BoxDecoration(
           color: AppColors.projectCardBackgroundColor,
           borderRadius: BorderRadius.circular(30),
@@ -77,7 +95,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   ),
                   child: Icon(
                     widget.icon,
-                    size: SizeConfig.blockHeight * 4,
+                    size: widget.iconSize ?? SizeConfig.blockHeight * 4,
                     color: widget.color,
                   ),
                 ),
@@ -86,32 +104,39 @@ class _ProjectCardState extends State<ProjectCard> {
                 SocialIconButton(
                   icon: FontAwesomeIcons.github,
                   iconColor: AppColors.white,
+                  iconSize: widget.iconSize ?? SizeConfig.blockHeight * 3,
+                  padding:
+                      widget.githubIconPadding ??
+                      EdgeInsets.symmetric(
+                        vertical: SizeConfig.blockWidth * 0.01,
+                        horizontal: SizeConfig.blockWidth * 0.1,
+                      ),
                   onTap: widget.onTap,
                 ),
               ],
             ),
-            SizedBox(height: SizeConfig.blockHeight * 2.5),
+            SizedBox(height: SizeConfig.blockHeight * 1),
 
             // Title
             Text(
               widget.title,
               style: TextStyle(
                 color: widget.color,
-                fontSize: SizeConfig.blockWidth * 1.5,
+                fontSize: widget.titleFontSize ?? SizeConfig.blockWidth * 1.5,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: SizeConfig.blockHeight * 2.5),
+            SizedBox(height: SizeConfig.blockHeight * 1),
 
             // Description
             Text(
               widget.description,
               style: TextStyle(
                 color: Colors.white.withAlpha(150),
-                fontSize: SizeConfig.blockWidth * 0.9,
+                fontSize: widget.descFontSize ?? SizeConfig.blockWidth * 0.9,
               ),
             ),
-            const SizedBox(height: 18),
+            SizedBox(height: SizeConfig.blockWidth * 2),
 
             // Key Features
             const Text(
@@ -124,7 +149,7 @@ class _ProjectCardState extends State<ProjectCard> {
             ),
             const SizedBox(height: 10),
             Wrap(
-              spacing: 40,
+              spacing: 70,
               runSpacing: 10,
               children:
                   widget.features.map((feature) {
@@ -133,7 +158,8 @@ class _ProjectCardState extends State<ProjectCard> {
                       children: [
                         Icon(
                           Icons.fiber_manual_record,
-                          size: SizeConfig.blockWidth * 0.8,
+                          size:
+                              widget.bulletSize ?? SizeConfig.blockWidth * 0.6,
                           color: widget.color,
                         ),
                         SizedBox(width: SizeConfig.blockWidth * 0.5),
@@ -141,7 +167,9 @@ class _ProjectCardState extends State<ProjectCard> {
                           feature,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: SizeConfig.blockWidth * 0.8,
+                            fontSize:
+                                widget.featureFontSize ??
+                                SizeConfig.blockWidth * 0.8,
                           ),
                         ),
                       ],
@@ -149,18 +177,21 @@ class _ProjectCardState extends State<ProjectCard> {
                   }).toList(),
             ),
 
-            const SizedBox(height: 20),
+            SizedBox(height: SizeConfig.blockWidth * 2),
 
             // Tags
             Wrap(
+              runSpacing: 10,
               spacing: 8,
               children:
                   widget.tags.map((tag) {
                     return Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
+                      padding:
+                          widget.padding ??
+                          const EdgeInsets.symmetric(
+                            horizontal: 18,
+                            vertical: 8,
+                          ),
                       decoration: BoxDecoration(
                         color: widget.color.withAlpha(25),
                         borderRadius: BorderRadius.circular(20),
@@ -170,7 +201,8 @@ class _ProjectCardState extends State<ProjectCard> {
                         style: TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.w500,
-                          fontSize: SizeConfig.blockWidth * 0.8,
+                          fontSize:
+                              widget.tagFontSize ?? SizeConfig.blockWidth * 0.9,
                         ),
                       ),
                     );

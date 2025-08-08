@@ -16,14 +16,17 @@ class _CustomSkillChipState extends State<CustomSkillChip> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.2),
+      padding: EdgeInsets.all(SizeConfig.blockWidth * 0.1),
       child: MouseRegion(
         onEnter: (_) => setState(() => isHovered = true),
         onExit: (_) => setState(() => isHovered = false),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          margin: const EdgeInsets.only(right: 8),
+          padding: EdgeInsets.symmetric(
+            horizontal: SizeConfig.blockWidth * 2,
+            vertical: SizeConfig.blockWidth * 0.8,
+          ),
+          margin: EdgeInsets.only(right: 1),
           decoration: BoxDecoration(
             color:
                 isHovered

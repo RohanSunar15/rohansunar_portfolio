@@ -6,7 +6,14 @@ import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_text.dart
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_textfield.dart';
 
 class ContactMeFormSection extends StatefulWidget {
-  const ContactMeFormSection({super.key});
+  final double? containerHeight;
+  final double? containerWidth;
+
+  const ContactMeFormSection({
+    super.key,
+    this.containerHeight,
+    this.containerWidth,
+  });
 
   @override
   State<ContactMeFormSection> createState() => _ContactMeFormSectionState();
@@ -17,14 +24,130 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
 
   @override
   Widget build(BuildContext context) {
+    if (SizeConfig.isMobile(context)) {
+      return Container(
+        height: widget.containerHeight ?? SizeConfig.blockHeight * 100,
+        width: widget.containerWidth ?? SizeConfig.blockWidth * 45,
+        padding: EdgeInsets.symmetric(
+          vertical: SizeConfig.blockHeight * 5,
+          horizontal: SizeConfig.blockWidth * 2,
+        ),
+        margin: EdgeInsets.symmetric(
+          vertical: SizeConfig.blockWidth * 5,
+          horizontal: SizeConfig.blockWidth * 8,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.grey),
+        ),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomText(text: 'Your Name'),
+              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              CustomTextField(
+                label: 'label',
+                hintText: 'John Doe',
+                height: SizeConfig.blockHeight * 8,
+                width: SizeConfig.blockWidth * 75,
+              ),
+
+              CustomText(text: 'Your Email'),
+              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              CustomTextField(
+                label: 'label',
+                hintText: 'john@example.com',
+                height: SizeConfig.blockHeight * 8,
+                width: SizeConfig.blockWidth * 75,
+              ),
+              SizedBox(height: SizeConfig.blockHeight * 2),
+              //Subject
+              CustomText(text: 'Subject (Optional)'),
+              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              CustomTextField(
+                label: 'label',
+                hintText: 'Give your message a title',
+                height: SizeConfig.blockHeight * 8,
+                width: SizeConfig.blockWidth * 75,
+                maxLines: 2,
+              ),
+              SizedBox(height: SizeConfig.blockHeight * 2),
+
+              CustomText(text: 'Message '),
+              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              CustomTextField(
+                label: 'label',
+                hintText:
+                    'Drop your thoughts, goals, or just a message to connect!',
+                height: SizeConfig.blockHeight * 30,
+                width: SizeConfig.blockWidth * 75,
+                maxLines: 7,
+              ),
+
+              //Send Message Button
+              MouseRegion(
+                onEnter: (_) => setState(() => _isHovered = true),
+                onExit: (_) => setState(() => _isHovered = false),
+                child: SizedBox(
+                  width: SizeConfig.blockWidth * 75,
+                  child: CustomButton(
+                    padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [AppColors.buttonBlue, AppColors.buttonPurple],
+                      ),
+                      boxShadow:
+                          _isHovered
+                              ? [
+                                BoxShadow(
+                                  color: Colors.cyanAccent.withAlpha(150),
+                                  blurRadius: 40,
+                                  spreadRadius: 1,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ]
+                              : [],
+                      borderRadius: BorderRadius.circular(
+                        SizeConfig.blockWidth * 1.1,
+                      ),
+                    ),
+                    childWidget: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.send,
+                          color: AppColors.black,
+                          size: SizeConfig.blockWidth * 3,
+                        ),
+                        SizedBox(width: SizeConfig.blockWidth * 1),
+                        Text(
+                          'Send Message',
+                          style: TextStyle(
+                            fontSize: SizeConfig.blockWidth * 3,
+                            color: AppColors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
     return Container(
-      height: SizeConfig.blockHeight * 90,
-      width: SizeConfig.blockWidth * 45,
+      height: widget.containerHeight ?? SizeConfig.blockHeight * 100,
+      width: widget.containerWidth ?? SizeConfig.blockWidth * 45,
       padding: EdgeInsets.symmetric(
-        vertical: SizeConfig.blockHeight * 5,
+        vertical: SizeConfig.blockHeight * 8,
         horizontal: SizeConfig.blockWidth * 2,
       ),
-      margin: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 2),
+      margin: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 1),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey),
@@ -32,7 +155,6 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //Name and Email
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -73,7 +195,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
             label: 'label',
             hintText: 'Give your message a title',
             height: SizeConfig.blockHeight * 8,
-            width: SizeConfig.blockWidth * 45,
+            width: SizeConfig.blockWidth * 40,
             maxLines: 2,
           ),
           SizedBox(height: SizeConfig.blockHeight * 2),
@@ -126,7 +248,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                       color: AppColors.black,
                       size: SizeConfig.blockWidth * 1.5,
                     ),
-                    SizedBox(width: SizeConfig.blockWidth * 1),
+                    SizedBox(width: SizeConfig.blockWidth * 2),
                     Text(
                       'Send Message',
                       style: TextStyle(

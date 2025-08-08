@@ -39,6 +39,7 @@ class _AnimatedSkillTagState extends State<AnimatedSkillTag>
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return AnimatedBuilder(
       animation: _animation,
       builder: (_, child) {
