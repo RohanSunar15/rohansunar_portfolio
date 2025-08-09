@@ -68,6 +68,7 @@ class _NavbarSectionState extends State<NavbarSection> {
                 ),
 
                 const Spacer(),
+
                 Row(
                   children: [
                     AnimatedHoverText(
