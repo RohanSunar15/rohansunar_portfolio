@@ -36,12 +36,12 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                 children: [
                   CustomText(
                     text: 'Featured ',
-                    fontSize: SizeConfig.blockWidth * 5,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                   ),
                   CustomText(
                     text: 'Projects',
-                    fontSize: SizeConfig.blockWidth * 5,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                     isGradient: true,
                   ),
@@ -49,15 +49,18 @@ class _ProjectsSectionState extends State<ProjectsSection> {
               ),
               CustomText(
                 text:
-                    'A showcase of my mobile development work, featuring cross-platform \napplications built with Flutter and modern technologies.',
-                fontSize: SizeConfig.blockWidth * 2,
+                    'A showcase of my mobile development work, featuring cross-platform applications built with Flutter and modern technologies.',
+                fontSize: SizeConfig.blockWidth * 3.5,
                 textColor: AppColors.white.withAlpha(190),
                 textAlign: TextAlign.center,
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.blockWidth * 2,
+                ),
               ),
-              SizedBox(height: SizeConfig.blockHeight * 2),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               Wrap(
-                spacing: 5,
-                runSpacing: 5,
+                spacing: 2,
+                runSpacing: 2,
                 children: [
                   ProjectCard(
                     onTap: () {
@@ -74,19 +77,19 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                       'Group chats',
                     ],
                     tags: ['Flutter', 'Firebase', 'Dart', 'Real-time'],
-                    tagFontSize: SizeConfig.blockWidth * 2,
+                    tagFontSize: SizeConfig.blockWidth * 2.5,
                     color: AppColors.primaryCyan,
-                    containerWidth: 200,
-                    iconSize: SizeConfig.blockWidth * 3,
-                    titleFontSize: SizeConfig.blockWidth * 3,
-                    descFontSize: SizeConfig.blockWidth * 2,
+                    containerWidth: SizeConfig.blockWidth * 45,
+                    iconSize: SizeConfig.blockWidth * 5,
+                    titleFontSize: SizeConfig.blockWidth * 4,
+                    descFontSize: SizeConfig.blockWidth * 3,
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     githubIconPadding: EdgeInsets.symmetric(
                       vertical: SizeConfig.blockWidth * 1,
                       horizontal: SizeConfig.blockWidth * 1,
                     ),
-                    bulletSize: SizeConfig.blockWidth * 2,
-                    featureFontSize: SizeConfig.blockWidth * 2,
+                    bulletSize: SizeConfig.blockWidth * 2.5,
+                    featureFontSize: SizeConfig.blockWidth * 3,
                   ),
                   ProjectCard(
                     onTap: () {
@@ -103,25 +106,25 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                       'Audio controls',
                     ],
                     tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
-                    tagFontSize: SizeConfig.blockWidth * 2,
+                    tagFontSize: SizeConfig.blockWidth * 2.5,
                     color: AppColors.softPurple,
-                    containerWidth: 200,
-                    iconSize: SizeConfig.blockWidth * 3,
-                    titleFontSize: SizeConfig.blockWidth * 3,
-                    descFontSize: SizeConfig.blockWidth * 2,
+                    containerWidth: SizeConfig.blockWidth * 45,
+                    iconSize: SizeConfig.blockWidth * 5,
+                    titleFontSize: SizeConfig.blockWidth * 4,
+                    descFontSize: SizeConfig.blockWidth * 3,
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     githubIconPadding: EdgeInsets.symmetric(
                       vertical: SizeConfig.blockWidth * 1,
                       horizontal: SizeConfig.blockWidth * 1,
                     ),
-                    bulletSize: SizeConfig.blockWidth * 2,
-                    featureFontSize: SizeConfig.blockWidth * 2,
+                    bulletSize: SizeConfig.blockWidth * 2.5,
+                    featureFontSize: SizeConfig.blockWidth * 3,
                   ),
                   ProjectCard(
                     onTap: () {
                       context.read<HomeBloc>().add(TodoAppGitHubLink());
                     },
-                    icon: Icons.music_note,
+                    icon: Icons.note_add,
                     title: 'Todo App',
                     description:
                         'A task management application with local storage using Hive and SharedPreferences, featuring task categorization and reminders.',
@@ -131,36 +134,35 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                       'Categories',
                       'Reminders',
                     ],
-                    tags: ['Flutter', 'Audio', 'UI/UX', 'Dart'],
-                    tagFontSize: SizeConfig.blockWidth * 2,
+                    tags: ['Flutter', 'Hive', 'UI/UX', 'Dart'],
+                    tagFontSize: SizeConfig.blockWidth * 2.5,
                     color: AppColors.successGreen,
-                    containerWidth: 200,
-                    iconSize: SizeConfig.blockWidth * 3,
-                    titleFontSize: SizeConfig.blockWidth * 3,
-                    descFontSize: SizeConfig.blockWidth * 2,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    containerWidth: SizeConfig.blockWidth * 45,
+                    iconSize: SizeConfig.blockWidth * 5,
+                    titleFontSize: SizeConfig.blockWidth * 4,
+                    descFontSize: SizeConfig.blockWidth * 3,
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     githubIconPadding: EdgeInsets.symmetric(
                       vertical: SizeConfig.blockWidth * 1,
                       horizontal: SizeConfig.blockWidth * 1,
                     ),
-                    bulletSize: SizeConfig.blockWidth * 2,
-                    featureFontSize: SizeConfig.blockWidth * 2,
+                    bulletSize: SizeConfig.blockWidth * 2.5,
+                    featureFontSize: SizeConfig.blockWidth * 3,
                   ),
                 ],
               ),
+              SizedBox(height: SizeConfig.blockHeight * 2),
               MouseRegion(
                 onEnter: (_) => setState(() => _isHovered = true),
                 onExit: (_) => setState(() => _isHovered = false),
                 child: SizedBox(
-                  width: SizeConfig.blockWidth * 40,
+                  width: SizeConfig.blockWidth * 70,
+                  height: SizeConfig.blockHeight * 5,
                   child: CustomButton(
                     onPressed: () {
                       context.read<HomeBloc>().add(OpenGithubProfile());
                     },
-                    padding: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockHeight * 3,
-                      horizontal: SizeConfig.blockWidth * 2.5,
-                    ),
+
                     decoration: BoxDecoration(
                       boxShadow:
                           _isHovered
@@ -188,13 +190,13 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                         FaIcon(
                           FontAwesomeIcons.github,
                           color: _isHovered ? AppColors.black : AppColors.white,
-                          size: SizeConfig.blockWidth * 3,
+                          size: SizeConfig.blockWidth * 4,
                         ),
                         SizedBox(width: SizeConfig.blockWidth * 2),
                         Text(
                           'View all Projects on GitHub',
                           style: TextStyle(
-                            fontSize: SizeConfig.blockWidth * 2,
+                            fontSize: SizeConfig.blockWidth * 4,
                             color:
                                 _isHovered ? AppColors.black : AppColors.white,
                           ),
