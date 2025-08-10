@@ -64,10 +64,10 @@ class _ContactSectionState extends State<ContactSection> {
                     ),
                   ),
 
-                  // ContactMeFormSection(
-                  //   containerHeight: SizeConfig.blockHeight * 70,
-                  //   containerWidth: SizeConfig.blockWidth * 90,
-                  // ),
+                  ContactMeFormSection(
+                    containerHeight: SizeConfig.blockHeight * 70,
+                    containerWidth: SizeConfig.blockWidth * 90,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: SizeConfig.blockWidth * 10,
