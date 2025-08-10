@@ -6,12 +6,16 @@ class AnimatedSkillTag extends StatefulWidget {
   final String label;
   final Color color;
   final Offset startOffset;
+  final double? fontSize;
+  final EdgeInsetsGeometry? padding;
 
   const AnimatedSkillTag({
     super.key,
     required this.label,
     required this.color,
     required this.startOffset,
+    this.fontSize,
+    this.padding,
   });
 
   @override
@@ -50,20 +54,22 @@ class _AnimatedSkillTagState extends State<AnimatedSkillTag>
         );
       },
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: SizeConfig.blockWidth * 0.5,
-          vertical: SizeConfig.blockHeight * 0.5,
-        ),
+        padding:
+            widget.padding ??
+            EdgeInsets.symmetric(
+              horizontal: SizeConfig.blockWidth * 0.5,
+              vertical: SizeConfig.blockHeight * 0.5,
+            ),
         decoration: BoxDecoration(
           color: AppColors.animatedTagBackgroundColor.withAlpha(200),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.grey, width: 0.5),
+          border: Border.all(color: Colors.grey, width: 1),
         ),
         child: Text(
           widget.label,
           style: TextStyle(
             color: widget.color,
-            fontSize: SizeConfig.blockWidth * 2,
+            fontSize: widget.fontSize ?? SizeConfig.blockWidth * 2,
           ),
         ),
       ),

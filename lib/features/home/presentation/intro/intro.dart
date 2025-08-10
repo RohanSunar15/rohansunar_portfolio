@@ -43,9 +43,9 @@ class _IntroSectionState extends State<IntroSection> {
                   Padding(
                     padding: EdgeInsets.only(
                       right: SizeConfig.blockHeight * 1,
-                      top: SizeConfig.blockWidth * 3,
+                      top: SizeConfig.blockWidth * 5,
                       bottom: SizeConfig.blockWidth * 5,
-                      left: SizeConfig.blockHeight * 7,
+                      left: SizeConfig.blockHeight * 4,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,21 +53,23 @@ class _IntroSectionState extends State<IntroSection> {
                         CustomText(
                           text: 'Rohan Kamal',
                           color: AppColors.white,
-                          fontSize: SizeConfig.blockWidth * 6,
+                          fontSize: SizeConfig.blockWidth * 8,
                           fontWeight: FontWeight.bold,
                         ),
                         CustomText(
                           text: 'Sunar',
-                          fontSize: SizeConfig.blockWidth * 7.5,
+                          fontSize: SizeConfig.blockWidth * 8,
                           fontWeight: FontWeight.bold,
                           isGradient: true,
                         ),
+                        SizedBox(height: SizeConfig.blockWidth * 3),
                         CustomText(
                           text: 'Flutter Developer',
-                          textColor: AppColors.grey,
+                          textColor: AppColors.white,
                           fontSize: SizeConfig.blockWidth * 4,
                           fontWeight: FontWeight.bold,
                         ),
+                        SizedBox(height: SizeConfig.blockWidth * 2),
                         RichText(
                           text: TextSpan(
                             style: TextStyle(
@@ -80,8 +82,9 @@ class _IntroSectionState extends State<IntroSection> {
                                 text: 'Building modern mobile apps with ',
                               ),
                               TextSpan(
-                                text: '\nFlutter',
+                                text: 'Flutter',
                                 style: TextStyle(
+                                  fontSize: SizeConfig.blockWidth * 4,
                                   color: AppColors.primaryCyan,
                                 ), // Flutter Blue
                               ),
@@ -89,17 +92,18 @@ class _IntroSectionState extends State<IntroSection> {
                               TextSpan(
                                 text: 'Dart',
                                 style: TextStyle(
+                                  fontSize: SizeConfig.blockWidth * 4,
                                   color: AppColors.softPurple,
                                 ), // Dart Purple
                               ),
                               const TextSpan(
                                 text:
-                                    '. \nPassionate about clean UI and \nperformance-optimized development.',
+                                    '. \nPassionate about clean UI and performance-optimized development.',
                               ),
                             ],
                           ),
                         ),
-
+                        SizedBox(height: SizeConfig.blockHeight * 3),
                         Container(
                           key: SectionKeys.toProjectsKey,
                           padding: EdgeInsets.all(SizeConfig.blockHeight * 2),
@@ -111,8 +115,8 @@ class _IntroSectionState extends State<IntroSection> {
                                 onExit:
                                     (_) => setState(() => _isHovered = false),
                                 child: SizedBox(
-                                  height: SizeConfig.blockHeight * 5,
-                                  width: SizeConfig.blockWidth * 22,
+                                  height: SizeConfig.blockHeight * 3.5,
+                                  width: SizeConfig.blockWidth * 30,
                                   child: CustomButton(
                                     onPressed: () {
                                       context.read<HomeBloc>().add(
@@ -120,7 +124,7 @@ class _IntroSectionState extends State<IntroSection> {
                                       );
                                     },
                                     padding: EdgeInsets.all(
-                                      SizeConfig.blockWidth * 1.1,
+                                      SizeConfig.blockWidth * 1,
                                     ),
                                     decoration: BoxDecoration(
                                       gradient: const LinearGradient(
@@ -149,7 +153,7 @@ class _IntroSectionState extends State<IntroSection> {
                                     ),
                                     childWidget: CustomText(
                                       text: 'View Projects',
-                                      fontSize: SizeConfig.blockWidth * 2,
+                                      fontSize: SizeConfig.blockWidth * 3,
                                       textColor: AppColors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -169,8 +173,8 @@ class _IntroSectionState extends State<IntroSection> {
                                         () => _isContactMeHovered = false,
                                       ),
                                   child: SizedBox(
-                                    height: SizeConfig.blockHeight * 5,
-                                    width: SizeConfig.blockWidth * 22,
+                                    height: SizeConfig.blockHeight * 3.5,
+                                    width: SizeConfig.blockWidth * 30,
                                     child: CustomButton(
                                       onPressed: () {
                                         context.read<HomeBloc>().add(
@@ -204,7 +208,7 @@ class _IntroSectionState extends State<IntroSection> {
                                       overlayColor: AppColors.transparent,
                                       childWidget: CustomText(
                                         text: 'Contact Me',
-                                        fontSize: SizeConfig.blockWidth * 2,
+                                        fontSize: SizeConfig.blockWidth * 3,
                                         textColor:
                                             _isContactMeHovered
                                                 ? AppColors.black
@@ -217,72 +221,22 @@ class _IntroSectionState extends State<IntroSection> {
                             ],
                           ),
                         ),
-
-                        Row(
-                          children: [
-                            SocialIconButton(
-                              icon: FontAwesomeIcons.github,
-                              iconColor: AppColors.white,
-                              iconSize: SizeConfig.blockWidth * 5,
-                              onTap: () {
-                                context.read<HomeBloc>().add(
-                                  OpenGithubProfile(),
-                                );
-                              },
-                            ),
-                            SizedBox(width: SizeConfig.blockWidth * 2),
-                            SocialIconButton(
-                              icon: FontAwesomeIcons.linkedin,
-                              iconColor: AppColors.white,
-                              iconSize: SizeConfig.blockWidth * 5,
-                              onTap: () {
-                                context.read<HomeBloc>().add(
-                                  OpenLinkedInProfile(),
-                                );
-                              },
-                            ),
-                            SizedBox(width: SizeConfig.blockWidth * 2),
-
-                            Tooltip(
-                              message: 'rohanksunar15@gmail.com',
-                              margin: EdgeInsets.all(15),
-                              decoration: BoxDecoration(
-                                color: AppColors.grey,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              textStyle: TextStyle(
-                                fontSize: SizeConfig.blockWidth * 1,
-                                color: AppColors.white,
-                              ),
-
-                              child: SocialIconButton(
-                                icon: Icons.email_outlined,
-                                iconColor: AppColors.white,
-                                iconSize: SizeConfig.blockWidth * 5,
-                                onTap: () {
-                                  context.read<HomeBloc>().add(
-                                    GmailRedirectRequested(),
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
                       ],
                     ),
                   ),
+                  SizedBox(height: SizeConfig.blockHeight * 3),
                   Center(
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: [
                         Container(
-                          width: SizeConfig.blockWidth * 32,
-                          height: SizeConfig.blockWidth * 32,
+                          width: SizeConfig.blockWidth * 60,
+                          height: SizeConfig.blockHeight * 30,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
                               color: Colors.tealAccent,
-                              width: 2,
+                              width: 1.5,
                             ),
                             image: const DecorationImage(
                               image: AssetImage(AppImages.profileImage),
@@ -294,33 +248,118 @@ class _IntroSectionState extends State<IntroSection> {
                         AnimatedSkillTag(
                           label: 'Flutter',
                           color: AppColors.primaryCyan,
+                          fontSize: SizeConfig.blockWidth * 4,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockWidth * 3,
+                            vertical: SizeConfig.blockHeight * 0.5,
+                          ),
                           startOffset: Offset(
-                            SizeConfig.blockWidth * 25,
-                            SizeConfig.blockHeight * -3,
+                            SizeConfig.blockWidth * 50,
+                            SizeConfig.blockHeight * -2,
                           ),
                         ),
                         AnimatedSkillTag(
                           label: 'Dart',
                           color: AppColors.softPurple,
+                          fontSize: SizeConfig.blockWidth * 4,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockWidth * 3,
+                            vertical: SizeConfig.blockHeight * 0.5,
+                          ),
                           startOffset: Offset(
-                            SizeConfig.blockWidth * -3,
-                            SizeConfig.blockHeight * 5,
+                            SizeConfig.blockWidth * -6,
+                            SizeConfig.blockHeight * 2,
                           ),
                         ),
                         AnimatedSkillTag(
                           label: 'Firebase',
                           color: AppColors.successGreen,
+                          fontSize: SizeConfig.blockWidth * 4,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockWidth * 3,
+                            vertical: SizeConfig.blockHeight * 0.5,
+                          ),
                           startOffset: Offset(
-                            SizeConfig.blockWidth * 26,
-                            SizeConfig.blockHeight * 15,
+                            SizeConfig.blockWidth * 55,
+                            SizeConfig.blockHeight * 20,
                           ),
                         ),
                         AnimatedSkillTag(
                           label: 'Node.js',
                           color: AppColors.vibrantOrange,
+                          fontSize: SizeConfig.blockWidth * 4,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: SizeConfig.blockWidth * 3,
+                            vertical: SizeConfig.blockHeight * 0.5,
+                          ),
                           startOffset: Offset(
-                            SizeConfig.blockWidth * -2,
-                            SizeConfig.blockHeight * 20,
+                            SizeConfig.blockWidth * -3,
+                            SizeConfig.blockHeight * 25,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockWidth * 15,
+                      vertical: SizeConfig.blockWidth * 15,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SocialIconButton(
+                          icon: FontAwesomeIcons.github,
+                          iconColor: AppColors.white,
+                          iconSize: SizeConfig.blockWidth * 8,
+                          padding: EdgeInsets.symmetric(
+                            vertical: SizeConfig.blockWidth * 1.5,
+                            horizontal: SizeConfig.blockWidth * 3,
+                          ),
+                          onTap: () {
+                            context.read<HomeBloc>().add(OpenGithubProfile());
+                          },
+                        ),
+                        SizedBox(width: SizeConfig.blockWidth * 5),
+                        SocialIconButton(
+                          icon: FontAwesomeIcons.linkedin,
+                          iconColor: AppColors.white,
+                          iconSize: SizeConfig.blockWidth * 8,
+                          padding: EdgeInsets.symmetric(
+                            vertical: SizeConfig.blockWidth * 1.5,
+                            horizontal: SizeConfig.blockWidth * 3,
+                          ),
+                          onTap: () {
+                            context.read<HomeBloc>().add(OpenLinkedInProfile());
+                          },
+                        ),
+                        SizedBox(width: SizeConfig.blockWidth * 5),
+
+                        Tooltip(
+                          message: 'rohanksunar15@gmail.com',
+                          margin: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            color: AppColors.grey,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          textStyle: TextStyle(
+                            fontSize: SizeConfig.blockWidth * 1,
+                            color: AppColors.white,
+                          ),
+
+                          child: SocialIconButton(
+                            icon: Icons.email_outlined,
+                            iconColor: AppColors.white,
+                            iconSize: SizeConfig.blockWidth * 8,
+                            padding: EdgeInsets.symmetric(
+                              vertical: SizeConfig.blockWidth * 1.5,
+                              horizontal: SizeConfig.blockWidth * 3,
+                            ),
+                            onTap: () {
+                              context.read<HomeBloc>().add(
+                                GmailRedirectRequested(),
+                              );
+                            },
                           ),
                         ),
                       ],
