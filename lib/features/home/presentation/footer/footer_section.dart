@@ -44,7 +44,7 @@ class _FooterSectionState extends State<FooterSection> {
                         children: [
                           CustomText(
                             text: 'Rohan Kamal Sunar',
-                            fontSize: SizeConfig.blockWidth * 3.5,
+                            fontSize: SizeConfig.blockWidth * 4,
                             fontWeight: FontWeight.bold,
                             isGradient: true,
                           ),
@@ -54,18 +54,22 @@ class _FooterSectionState extends State<FooterSection> {
                             child: CustomText(
                               text:
                                   'Flutter Developer passionate about creating beautiful, performant mobile applications.',
-                              fontSize: SizeConfig.blockWidth * 1.5,
+                              fontSize: SizeConfig.blockWidth * 2,
                               textColor: AppColors.white.withAlpha(190),
                               textAlign: TextAlign.start,
                             ),
                           ),
-                          SizedBox(height: SizeConfig.blockHeight * 3),
+                          SizedBox(height: SizeConfig.blockHeight * 2),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SocialIconButton(
                                 icon: FontAwesomeIcons.github,
                                 iconColor: AppColors.white,
+                                iconSize: SizeConfig.blockWidth * 5,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: SizeConfig.blockWidth * 0.8,
+                                  horizontal: SizeConfig.blockWidth * 1.2,
+                                ),
                                 onTap: () {
                                   context.read<HomeBloc>().add(
                                     OpenGithubProfile(),
@@ -75,6 +79,11 @@ class _FooterSectionState extends State<FooterSection> {
                               SocialIconButton(
                                 icon: FontAwesomeIcons.linkedin,
                                 iconColor: AppColors.white,
+                                iconSize: SizeConfig.blockWidth * 5,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: SizeConfig.blockWidth * 0.8,
+                                  horizontal: SizeConfig.blockWidth * 1.2,
+                                ),
                                 onTap: () {
                                   context.read<HomeBloc>().add(
                                     OpenLinkedInProfile(),
@@ -84,6 +93,11 @@ class _FooterSectionState extends State<FooterSection> {
                               SocialIconButton(
                                 icon: Icons.email_outlined,
                                 iconColor: AppColors.white,
+                                iconSize: SizeConfig.blockWidth * 5,
+                                padding: EdgeInsets.symmetric(
+                                  vertical: SizeConfig.blockWidth * 0.8,
+                                  horizontal: SizeConfig.blockWidth * 1.2,
+                                ),
                                 onTap: () {
                                   context.read<HomeBloc>().add(
                                     GmailRedirectRequested(),
@@ -99,10 +113,10 @@ class _FooterSectionState extends State<FooterSection> {
                         children: [
                           CustomText(
                             text: 'Quick Links',
-                            fontSize: SizeConfig.blockWidth * 2.5,
+                            fontSize: SizeConfig.blockWidth * 3,
                             fontWeight: FontWeight.bold,
                           ),
-                          SizedBox(height: SizeConfig.blockHeight * 1),
+                          SizedBox(height: SizeConfig.blockHeight * 1.5),
                           CustomText(
                             onTap: () {
                               context.read<HomeBloc>().add(
@@ -111,6 +125,7 @@ class _FooterSectionState extends State<FooterSection> {
                             },
                             text: 'About',
                             fontSize: SizeConfig.blockWidth * 1.8,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
@@ -123,6 +138,7 @@ class _FooterSectionState extends State<FooterSection> {
                             },
                             text: 'Skills',
                             fontSize: SizeConfig.blockWidth * 1.8,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
@@ -135,6 +151,7 @@ class _FooterSectionState extends State<FooterSection> {
                             },
                             text: 'Projects',
                             fontSize: SizeConfig.blockWidth * 1.8,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
@@ -147,6 +164,7 @@ class _FooterSectionState extends State<FooterSection> {
                             },
                             text: 'Contact',
                             fontSize: SizeConfig.blockWidth * 1.8,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
@@ -157,20 +175,22 @@ class _FooterSectionState extends State<FooterSection> {
                         children: [
                           CustomText(
                             text: 'Get in Touch',
-                            fontSize: SizeConfig.blockWidth * 2.5,
+                            fontSize: SizeConfig.blockWidth * 3,
                             fontWeight: FontWeight.bold,
                           ),
                           SizedBox(height: SizeConfig.blockHeight * 1.5),
                           CustomText(
                             text: 'rohanksunar15@gmail.com',
-                            fontSize: SizeConfig.blockWidth * 2,
+                            fontSize: SizeConfig.blockWidth * 2.3,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
                           SizedBox(height: SizeConfig.blockHeight * 1),
                           CustomText(
                             text: 'Available For Work',
-                            fontSize: SizeConfig.blockWidth * 2,
+                            fontSize: SizeConfig.blockWidth * 2.3,
+                            fontWeight: FontWeight.bold,
                             textColor: AppColors.white.withAlpha(190),
                             textAlign: TextAlign.center,
                           ),
@@ -186,12 +206,14 @@ class _FooterSectionState extends State<FooterSection> {
                     children: [
                       CustomText(
                         text: '© 2025 Rohan Kamal Sunar. All rights reserved.',
-                        fontSize: SizeConfig.blockWidth * 2,
+                        fontSize: SizeConfig.blockWidth * 2.3,
+                        fontWeight: FontWeight.bold,
                         textColor: AppColors.grey,
                       ),
                       CustomText(
                         text: 'Made with ❤️ using Flutter ',
-                        fontSize: SizeConfig.blockWidth * 2,
+                        fontSize: SizeConfig.blockWidth * 2.3,
+                        fontWeight: FontWeight.bold,
                         textColor: AppColors.grey,
                       ),
                     ],
