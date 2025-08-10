@@ -27,14 +27,15 @@ class _MobileNavDrawerState extends State<MobileNavDrawer> {
         return Drawer(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: SizeConfig.blockWidth * 0.5,
+              horizontal: SizeConfig.blockWidth * 1,
+              vertical: SizeConfig.blockWidth * 1,
             ),
             child: ListView(
               children: [
                 ListTile(
                   title: CustomText(
                     text: 'RKS',
-                    fontSize: SizeConfig.blockWidth * 6,
+                    fontSize: SizeConfig.blockWidth * 7,
                     fontWeight: FontWeight.bold,
                     isGradient: true,
                     isHoverable: false,
