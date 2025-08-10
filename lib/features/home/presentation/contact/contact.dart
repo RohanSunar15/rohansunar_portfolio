@@ -42,12 +42,12 @@ class _ContactSectionState extends State<ContactSection> {
                     children: [
                       CustomText(
                         text: 'Lets\'s ',
-                        fontSize: SizeConfig.blockWidth * 5,
+                        fontSize: SizeConfig.blockWidth * 6,
                         fontWeight: FontWeight.bold,
                       ),
                       CustomText(
                         text: 'Connect',
-                        fontSize: SizeConfig.blockWidth * 5,
+                        fontSize: SizeConfig.blockWidth * 6,
                         fontWeight: FontWeight.bold,
                         isGradient: true,
                       ),
@@ -55,33 +55,36 @@ class _ContactSectionState extends State<ContactSection> {
                   ),
                   CustomText(
                     text:
-                        'Ready to bring your mobile app idea to life? Let\'s discuss your project and \nexplore how we can work together.',
-                    fontSize: SizeConfig.blockWidth * 2,
+                        'Ready to bring your mobile app idea to life? Let\'s discuss your project and explore how we can work together.',
+                    fontSize: SizeConfig.blockWidth * 3.5,
                     textColor: AppColors.white.withAlpha(190),
                     textAlign: TextAlign.center,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SizeConfig.blockWidth * 2,
+                    ),
                   ),
 
-                  ContactMeFormSection(
-                    containerHeight: SizeConfig.blockWidth * 135,
-                    containerWidth: SizeConfig.blockWidth * 90,
-                  ),
+                  // ContactMeFormSection(
+                  //   containerHeight: SizeConfig.blockHeight * 70,
+                  //   containerWidth: SizeConfig.blockWidth * 90,
+                  // ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockWidth * 15,
+                      horizontal: SizeConfig.blockWidth * 10,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText(
                           text: 'Get in Touch',
-                          fontSize: SizeConfig.blockWidth * 3.5,
+                          fontSize: SizeConfig.blockWidth * 5,
                           fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: SizeConfig.blockHeight * 1.5),
                         CustomText(
                           text:
                               'I\'m always excited to discuss new projects and opportunities. Whether you need a mobile app built from scratch or want to enhance an existing application, I\'m here to help turn your vision into reality.',
-                          fontSize: SizeConfig.blockWidth * 2,
+                          fontSize: SizeConfig.blockWidth * 2.5,
                           textColor: AppColors.white.withAlpha(150),
                           textAlign: TextAlign.start,
                         ),
@@ -91,46 +94,55 @@ class _ContactSectionState extends State<ContactSection> {
                             CustomInfoCard(
                               icon: Icons.email_outlined,
                               iconColor: AppColors.primaryCyan,
+                              iconSize: SizeConfig.blockWidth * 8,
                               iconBackgroundColor: AppColors.primaryCyan
                                   .withAlpha(25),
                               title: 'Email',
-                              height: SizeConfig.blockWidth * 15,
-                              padding: EdgeInsets.all(
-                                SizeConfig.blockWidth * 2,
+                              height: SizeConfig.blockWidth * 20,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 3,
+                                horizontal: SizeConfig.blockWidth * 3,
                               ),
                               description: 'rohanksunar15@gmail.com',
+                              descFontSize: SizeConfig.blockWidth * 4,
                             ),
                             CustomInfoCard(
                               icon: Icons.phone_android_outlined,
                               iconColor: AppColors.softPurple,
+                              iconSize: SizeConfig.blockWidth * 8,
                               iconBackgroundColor: AppColors.softPurple
                                   .withAlpha(25),
-                              height: SizeConfig.blockWidth * 15,
-                              padding: EdgeInsets.all(
-                                SizeConfig.blockWidth * 2,
+                              height: SizeConfig.blockWidth * 20,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 3,
+                                horizontal: SizeConfig.blockWidth * 3,
                               ),
                               title: 'Phone Number',
                               description: '+91 98341 50718 ',
+                              descFontSize: SizeConfig.blockWidth * 4,
                             ),
                             CustomInfoCard(
                               icon: Icons.work_outline,
                               iconColor: AppColors.successGreen,
+                              iconSize: SizeConfig.blockWidth * 8,
                               iconBackgroundColor: AppColors.successGreen
                                   .withAlpha(25),
-                              height: SizeConfig.blockWidth * 18,
-                              padding: EdgeInsets.all(
-                                SizeConfig.blockWidth * 2,
+                              height: SizeConfig.blockWidth * 25,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 3,
+                                horizontal: SizeConfig.blockWidth * 3,
                               ),
                               title: 'Previous Internship',
                               description:
                                   'Flutter Developer Role (Partially Completed) at Liveasy',
+                              descFontSize: SizeConfig.blockWidth * 4,
                             ),
                           ],
                         ),
                         SizedBox(height: SizeConfig.blockHeight * 1.5),
                         CustomText(
                           text: 'Follow Me',
-                          fontSize: SizeConfig.blockWidth * 3.5,
+                          fontSize: SizeConfig.blockWidth * 5,
                           fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: SizeConfig.blockHeight * 2),
@@ -140,6 +152,11 @@ class _ContactSectionState extends State<ContactSection> {
                             SocialIconButton(
                               icon: FontAwesomeIcons.github,
                               iconColor: AppColors.white,
+                              iconSize: SizeConfig.blockWidth * 8,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 1.5,
+                                horizontal: SizeConfig.blockWidth * 3,
+                              ),
                               onTap: () {
                                 context.read<HomeBloc>().add(
                                   OpenGithubProfile(),
@@ -149,6 +166,11 @@ class _ContactSectionState extends State<ContactSection> {
                             SocialIconButton(
                               icon: FontAwesomeIcons.linkedin,
                               iconColor: AppColors.white,
+                              iconSize: SizeConfig.blockWidth * 8,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 1.5,
+                                horizontal: SizeConfig.blockWidth * 3,
+                              ),
                               onTap: () {
                                 context.read<HomeBloc>().add(
                                   OpenLinkedInProfile(),
@@ -158,6 +180,11 @@ class _ContactSectionState extends State<ContactSection> {
                             SocialIconButton(
                               icon: Icons.email_outlined,
                               iconColor: AppColors.white,
+                              iconSize: SizeConfig.blockWidth * 8,
+                              padding: EdgeInsets.symmetric(
+                                vertical: SizeConfig.blockWidth * 1.5,
+                                horizontal: SizeConfig.blockWidth * 3,
+                              ),
                               onTap: () {
                                 context.read<HomeBloc>().add(
                                   GmailRedirectRequested(),
@@ -167,7 +194,7 @@ class _ContactSectionState extends State<ContactSection> {
                           ],
                         ),
 
-                        SizedBox(height: SizeConfig.blockHeight * 5),
+                        SizedBox(height: SizeConfig.blockHeight * 2),
 
                         MouseRegion(
                           onEnter: (_) => setState(() => _isHovered = true),
@@ -180,9 +207,7 @@ class _ContactSectionState extends State<ContactSection> {
                                   DownloadResumeRequested(),
                                 );
                               },
-                              padding: EdgeInsets.all(
-                                SizeConfig.blockWidth * 1.1,
-                              ),
+
                               decoration: BoxDecoration(
                                 gradient: const LinearGradient(
                                   begin: Alignment.topLeft,
@@ -206,7 +231,7 @@ class _ContactSectionState extends State<ContactSection> {
                                         ]
                                         : [],
                                 borderRadius: BorderRadius.circular(
-                                  SizeConfig.blockWidth * 1.1,
+                                  SizeConfig.blockWidth * 10,
                                 ),
                               ),
                               childWidget: Row(
@@ -218,13 +243,14 @@ class _ContactSectionState extends State<ContactSection> {
                                         _isHovered
                                             ? AppColors.white
                                             : AppColors.black,
-                                    size: SizeConfig.blockWidth * 3,
+                                    size: SizeConfig.blockWidth * 4,
                                   ),
-                                  SizedBox(width: SizeConfig.blockWidth * 1),
+                                  SizedBox(width: SizeConfig.blockWidth * 3),
                                   Text(
                                     'Download Resume',
                                     style: TextStyle(
-                                      fontSize: SizeConfig.blockWidth * 3,
+                                      fontSize: SizeConfig.blockWidth * 4,
+                                      fontWeight: FontWeight.bold,
                                       color:
                                           _isHovered
                                               ? AppColors.white

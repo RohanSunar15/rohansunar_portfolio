@@ -29,7 +29,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
         height: widget.containerHeight ?? SizeConfig.blockHeight * 100,
         width: widget.containerWidth ?? SizeConfig.blockWidth * 45,
         padding: EdgeInsets.symmetric(
-          vertical: SizeConfig.blockHeight * 5,
+          vertical: SizeConfig.blockHeight * 2,
           horizontal: SizeConfig.blockWidth * 2,
         ),
         margin: EdgeInsets.symmetric(
@@ -45,7 +45,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomText(text: 'Your Name'),
-              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               CustomTextField(
                 label: 'label',
                 hintText: 'John Doe',
@@ -54,35 +54,34 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
               ),
 
               CustomText(text: 'Your Email'),
-              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               CustomTextField(
                 label: 'label',
                 hintText: 'john@example.com',
                 height: SizeConfig.blockHeight * 8,
                 width: SizeConfig.blockWidth * 75,
               ),
-              SizedBox(height: SizeConfig.blockHeight * 2),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               //Subject
               CustomText(text: 'Subject (Optional)'),
-              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               CustomTextField(
                 label: 'label',
                 hintText: 'Give your message a title',
                 height: SizeConfig.blockHeight * 8,
                 width: SizeConfig.blockWidth * 75,
-                maxLines: 2,
               ),
-              SizedBox(height: SizeConfig.blockHeight * 2),
+              SizedBox(height: SizeConfig.blockHeight * 1),
 
               CustomText(text: 'Message '),
-              SizedBox(height: SizeConfig.blockHeight * 1.5),
+              SizedBox(height: SizeConfig.blockHeight * 1),
               CustomTextField(
                 label: 'label',
                 hintText:
                     'Drop your thoughts, goals, or just a message to connect!',
-                height: SizeConfig.blockHeight * 30,
+                height: SizeConfig.blockHeight * 20,
                 width: SizeConfig.blockWidth * 75,
-                maxLines: 7,
+                maxLines: 5,
               ),
 
               //Send Message Button
@@ -111,7 +110,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                               ]
                               : [],
                       borderRadius: BorderRadius.circular(
-                        SizeConfig.blockWidth * 1.1,
+                        SizeConfig.blockWidth * 10,
                       ),
                     ),
                     childWidget: Row(
