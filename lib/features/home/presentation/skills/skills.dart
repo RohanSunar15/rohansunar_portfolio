@@ -15,7 +15,7 @@ class SkillsSection extends StatelessWidget {
         ? Container(
           key: SectionKeys.skillsKey,
           color: AppColors.white.withAlpha(10),
-          padding: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 0.5),
+          padding: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 2.5),
           child: Column(
             children: [
               Row(
@@ -23,25 +23,29 @@ class SkillsSection extends StatelessWidget {
                 children: [
                   CustomText(
                     text: 'Technical ',
-                    fontSize: SizeConfig.blockWidth * 5,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                   ),
                   CustomText(
                     text: 'Skills',
-                    fontSize: SizeConfig.blockWidth * 5,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                     isGradient: true,
                   ),
                 ],
               ),
+              SizedBox(height: SizeConfig.blockWidth * 3),
               CustomText(
                 text:
-                    'A comprehensive toolkit for building modern, scalable mobile applications and \nbackend services.',
-                fontSize: SizeConfig.blockWidth * 2,
+                    'A comprehensive toolkit for building modern, scalable mobile applications and backend services.',
+                fontSize: SizeConfig.blockWidth * 3.5,
                 textColor: AppColors.white.withAlpha(190),
                 textAlign: TextAlign.center,
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.blockWidth * 2,
+                ),
               ),
-              SizedBox(height: SizeConfig.blockHeight * 2),
+              SizedBox(height: SizeConfig.blockHeight * 4),
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: SizeConfig.blockWidth * 3,
@@ -151,7 +155,7 @@ class SkillsSection extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: SizeConfig.blockHeight * 12),
+              SizedBox(height: SizeConfig.blockHeight * 13),
             ],
           ),
         )
