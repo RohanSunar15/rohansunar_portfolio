@@ -13,6 +13,10 @@ class AboutMeSection extends StatelessWidget {
     return SizeConfig.isMobile(context)
         ? Container(
           key: SectionKeys.aboutKey,
+          padding: EdgeInsets.symmetric(
+            vertical: SizeConfig.blockWidth * 5,
+            horizontal: SizeConfig.blockWidth * 10,
+          ),
           child: Column(
             children: [
               Row(
@@ -20,12 +24,12 @@ class AboutMeSection extends StatelessWidget {
                 children: [
                   CustomText(
                     text: 'About ',
-                    fontSize: SizeConfig.blockWidth * 4,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                   ),
                   CustomText(
                     text: 'Me',
-                    fontSize: SizeConfig.blockWidth * 4,
+                    fontSize: SizeConfig.blockWidth * 6,
                     fontWeight: FontWeight.bold,
                     isGradient: true,
                   ),
@@ -33,29 +37,42 @@ class AboutMeSection extends StatelessWidget {
               ),
               CustomText(
                 text:
-                    'Passionate Flutter developer with a strong foundation in mobile app development \nand a commitment to creating exceptional user experiences.',
-                fontSize: SizeConfig.blockWidth * 2.5,
+                    'Passionate Flutter developer with a strong foundation in mobile app development and a commitment to creating exceptional user experiences.',
+                fontSize: SizeConfig.blockWidth * 3.5,
                 textColor: AppColors.white.withAlpha(190),
                 textAlign: TextAlign.center,
               ),
               CustomInfoCard(
                 icon: Icons.school_outlined,
                 iconColor: AppColors.primaryCyan,
+                iconSize: SizeConfig.blockWidth * 8,
                 iconBackgroundColor: AppColors.primaryCyan.withAlpha(25),
                 title: 'Education',
                 height: SizeConfig.blockHeight * 12,
                 width: SizeConfig.blockWidth * 80,
-                descFontSize: SizeConfig.blockHeight * 1.5,
+                descFontSize: SizeConfig.blockHeight * 1.2,
+                margin: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockHeight * 0.5,
+                ),
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockWidth * 3.5,
+                  horizontal: SizeConfig.blockWidth * 2,
+                ),
                 description:
                     'Bachelor\'s degree in Computer Science with a strong foundation in software development principles, algorithms, and system design.',
               ),
               CustomInfoCard(
                 icon: Icons.phone_android_outlined,
                 iconColor: AppColors.softPurple,
+                iconSize: SizeConfig.blockWidth * 8,
                 iconBackgroundColor: AppColors.softPurple.withAlpha(25),
-                height: SizeConfig.blockHeight * 15,
+                height: SizeConfig.blockHeight * 12,
                 width: SizeConfig.blockWidth * 80,
-                descFontSize: SizeConfig.blockHeight * 1.5,
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockWidth * 3.5,
+                  horizontal: SizeConfig.blockWidth * 2,
+                ),
+                descFontSize: SizeConfig.blockHeight * 1.2,
                 title: 'Mobile App Development',
                 description:
                     'Specialized in Flutter framework for cross-platform mobile app development, creating apps that run seamlessly on both iOS and Android platforms.',
@@ -63,10 +80,15 @@ class AboutMeSection extends StatelessWidget {
               CustomInfoCard(
                 icon: Icons.code_outlined,
                 iconColor: AppColors.successGreen,
+                iconSize: SizeConfig.blockWidth * 8,
                 iconBackgroundColor: AppColors.successGreen.withAlpha(25),
                 height: SizeConfig.blockHeight * 12,
                 width: SizeConfig.blockWidth * 80,
-                descFontSize: SizeConfig.blockHeight * 1.5,
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.blockWidth * 3.5,
+                  horizontal: SizeConfig.blockWidth * 2,
+                ),
+                descFontSize: SizeConfig.blockHeight * 1.2,
                 title: 'Full-Stack Skills',
                 description:
                     'Experience with both frontend and backend technologies, including Firebase, Node.js, Express, and various database solutions.',
@@ -77,10 +99,8 @@ class AboutMeSection extends StatelessWidget {
                 runSpacing: SizeConfig.blockHeight * 5,
                 children: [
                   Container(
-                    height: SizeConfig.blockHeight * 40,
-                    width: SizeConfig.blockWidth * 90,
                     padding: EdgeInsets.symmetric(
-                      vertical: SizeConfig.blockHeight * 3,
+                      vertical: SizeConfig.blockHeight * 1,
                     ),
 
                     //Description About me
@@ -89,15 +109,15 @@ class AboutMeSection extends StatelessWidget {
                         CustomText(
                           text:
                               'I am a dedicated Flutter developer who builds cross-platform mobile applications using Flutter and Dart. With a Bachelor\'s degree in Computer Science, I combine theoretical knowledge with practical skills to create robust, scalable applications.',
-                          fontSize: SizeConfig.blockWidth * 2,
+                          fontSize: SizeConfig.blockWidth * 2.5,
                         ),
                         CustomText(
                           text:
                               'My journey in software development has led me to specialize in mobile app development, where I focus on creating intuitive user interfaces and optimizing app performance. I have hands-on experience with various technologies including Firebase for backend services, Node.js for server-side development, and modern state management solutions.\nThrough various projects and continuous learning, I\'ve developed expertise in building full-featured applications that solve real-world problems. I\'m passionate about clean code, responsive design, and staying up-to-date with the latest industry trends.',
-                          fontSize: SizeConfig.blockWidth * 2,
+                          fontSize: SizeConfig.blockWidth * 2.5,
                           textColor: Colors.grey,
                         ),
-                        SizedBox(height: SizeConfig.blockHeight * 1),
+                        SizedBox(height: SizeConfig.blockHeight * 2.6),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,12 +127,12 @@ class AboutMeSection extends StatelessWidget {
                                 CustomText(
                                   text: '3+',
                                   textColor: AppColors.primaryCyan,
-                                  fontSize: SizeConfig.blockWidth * 3,
+                                  fontSize: SizeConfig.blockWidth * 6,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 CustomText(
                                   text: 'Project',
-                                  fontSize: SizeConfig.blockWidth * 3,
+                                  fontSize: SizeConfig.blockWidth * 4,
                                 ),
                               ],
                             ),
@@ -122,12 +142,12 @@ class AboutMeSection extends StatelessWidget {
                                 CustomText(
                                   text: 'CS',
                                   textColor: AppColors.softPurple,
-                                  fontSize: SizeConfig.blockWidth * 3,
+                                  fontSize: SizeConfig.blockWidth * 6,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 CustomText(
                                   text: 'Degree in Computer Science',
-                                  fontSize: SizeConfig.blockWidth * 3,
+                                  fontSize: SizeConfig.blockWidth * 4,
                                 ),
                               ],
                             ),

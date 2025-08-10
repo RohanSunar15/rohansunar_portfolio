@@ -14,6 +14,7 @@ class CustomInfoCard extends StatefulWidget {
   final double? titleFontSize;
   final double? descFontSize;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   const CustomInfoCard({
     super.key,
@@ -28,6 +29,7 @@ class CustomInfoCard extends StatefulWidget {
     this.titleFontSize,
     this.descFontSize,
     this.padding,
+    this.margin,
   });
 
   @override
@@ -47,7 +49,9 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
         curve: Curves.easeInOut,
         height: widget.height,
         width: widget.width,
-        margin: EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 1.5),
+        margin:
+            widget.margin ??
+            EdgeInsets.symmetric(vertical: SizeConfig.blockHeight * 1.5),
         padding: widget.padding ?? EdgeInsets.all(SizeConfig.blockWidth * 1),
         decoration: BoxDecoration(
           color: const Color(0xFF1E1E1E),
@@ -68,7 +72,7 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.all(SizeConfig.blockWidth * 1),
+              padding: EdgeInsets.all(SizeConfig.blockWidth * 0.5),
               decoration: BoxDecoration(
                 color: widget.iconBackgroundColor,
                 shape: BoxShape.circle,
