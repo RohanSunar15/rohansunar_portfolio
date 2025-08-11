@@ -9,6 +9,9 @@ class CustomTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final double? height;
   final double? width;
+  final ValueChanged<String>? onChanged;
+  final String? errorText;
+  final BorderSide? borderSide;
 
   const CustomTextField({
     super.key,
@@ -19,6 +22,9 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.height = 35,
     this.width = 200,
+    this.onChanged,
+    this.errorText,
+    this.borderSide,
   });
 
   @override
@@ -29,12 +35,14 @@ class CustomTextField extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 1),
       child: TextField(
         controller: controller,
+        onChanged: onChanged,
         keyboardType: keyboardType,
         maxLines: maxLines,
         style: TextStyle(color: AppColors.white),
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(color: AppColors.white.withAlpha(120)),
+          errorText: errorText,
           filled: true,
           fillColor: AppColors.black.withAlpha(40),
           isDense: true,
@@ -52,7 +60,9 @@ class CustomTextField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: AppColors.primaryCyan, width: 2),
+            borderSide:
+                borderSide ??
+                BorderSide(color: AppColors.primaryCyan, width: 2),
           ),
         ),
       ),

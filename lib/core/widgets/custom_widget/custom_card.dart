@@ -84,9 +84,11 @@ class _CustomInfoCardState extends State<CustomInfoCard> {
               ),
             ),
             SizedBox(width: SizeConfig.blockWidth * 2),
+
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     widget.title,
