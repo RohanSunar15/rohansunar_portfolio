@@ -38,7 +38,7 @@ jobs:
       - name: Deploy to GitHub Pages Repo
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          external_repository: RohanSunar15/RohanSunar15.github.io
           publish_branch: gh-pages
           publish_dir: ./build/web
-          destination_repo: RohanSunar15/RohanSunar15.github.io
