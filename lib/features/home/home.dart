@@ -6,10 +6,14 @@ import 'package:rohansunar_portfolio/core/widgets/animated_hover_text.dart';
 import 'package:rohansunar_portfolio/core/widgets/custom_widget/custom_text.dart';
 import 'package:rohansunar_portfolio/features/bloc/home_bloc.dart';
 import 'package:rohansunar_portfolio/features/bloc/home_event.dart';
+import 'package:rohansunar_portfolio/features/home/presentation/aboutme/about_me.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/contact/contact.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/footer/footer_section.dart';
+import 'package:rohansunar_portfolio/features/home/presentation/intro/intro.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/navbar/mobile_nav_drawer.dart';
 import 'package:rohansunar_portfolio/features/home/presentation/navbar/navbar.dart';
+import 'package:rohansunar_portfolio/features/home/presentation/projects/projects.dart';
+import 'package:rohansunar_portfolio/features/home/presentation/skills/skills.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -63,16 +67,16 @@ class _HomeState extends State<Home> {
           child: Column(
             children: [
               //Intro Section,
-              // const IntroSection(),
-              //
-              // // About Me Section
-              // AboutMeSection(),
-              //
-              // // Skills Section
-              // SkillsSection(),
-              //
-              // //Projects Section
-              // ProjectsSection(),
+              const IntroSection(),
+
+              // About Me Section
+              AboutMeSection(),
+
+              // Skills Section
+              SkillsSection(),
+
+              //Projects Section
+              ProjectsSection(),
 
               //Contact Section
               ContactSection(),
