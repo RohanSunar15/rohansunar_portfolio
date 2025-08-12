@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-sealed class HomeEvent {}
+class HomeEvent {}
 
 class ScrollToSectionEvent extends HomeEvent {
   final String section;

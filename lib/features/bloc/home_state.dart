@@ -19,7 +19,7 @@ class HomeState {
   });
 }
 
-final class HomeInitial extends HomeState {}
+class HomeInitial extends HomeState {}
 
 class ScrollToSectionState extends HomeState {
   final String section;
