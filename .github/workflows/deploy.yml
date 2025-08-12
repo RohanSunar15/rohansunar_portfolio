@@ -1,4 +1,4 @@
-name: Flutter Web Deploy with Auto Secrets
+name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
@@ -6,12 +6,11 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -24,7 +23,7 @@ jobs:
       - name: Build Flutter Web with all secrets
         run: |
           DART_DEFINES=""
-          for secret in $(env | cut -d= -f1);  do
+          for secret in $(env | cut -d= -f1); do
             value=$(printenv $secret)
             DART_DEFINES="$DART_DEFINES --dart-define=${secret}=${value}"
           done
@@ -35,8 +34,10 @@ jobs:
           EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
           MAILBOXLAYER_API_KEY: ${{ secrets.MAILBOXLAYER_API_KEY }}
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages Repo
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build/web
+          publish_branch: main
+          publish_dir: ./build/web
+          destination_repo: RohanSunar15/RohanSunar15.github.io
