@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:rohansunar_portfolio/core/config/envConfig/env_config.dart';
 
 Future<bool> verifyEmailWithAPI(String email) async {
-  final apiKey = dotenv.env['MAILBOXLAYER_API_KEY'];
+  final mailBoxLayerApiKey = EnvConfig.mailBoxLayerApiKey;
   final url = Uri.parse(
-    'https://apilayer.net/api/check?access_key=$apiKey&email=$email',
+    'https://apilayer.net/api/check?access_key=$mailBoxLayerApiKey&email=$email',
   );
 
   final response = await http.get(url);

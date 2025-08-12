@@ -77,6 +77,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                     CustomText(text: 'Your Name'),
                     SizedBox(height: SizeConfig.blockHeight * 1),
                     CustomTextField(
+                      controller: _nameController,
                       label: 'label',
                       hintText: 'John Doe',
                       height: SizeConfig.blockHeight * 8,
@@ -86,6 +87,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                     CustomText(text: 'Your Email'),
                     SizedBox(height: SizeConfig.blockHeight * 1),
                     CustomTextField(
+                      controller: _emailController,
                       label: 'label',
                       hintText: 'john@example.com',
                       height: SizeConfig.blockHeight * 8,
@@ -96,6 +98,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                     CustomText(text: 'Subject (Optional)'),
                     SizedBox(height: SizeConfig.blockHeight * 1),
                     CustomTextField(
+                      controller: _subjectController,
                       label: 'label',
                       hintText: 'Give your message a title',
                       height: SizeConfig.blockHeight * 8,
@@ -106,6 +109,7 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                     CustomText(text: 'Message '),
                     SizedBox(height: SizeConfig.blockHeight * 1),
                     CustomTextField(
+                      controller: _messageController,
                       label: 'label',
                       hintText:
                           'Drop your thoughts, goals, or just a message to connect!',
@@ -122,7 +126,14 @@ class _ContactMeFormSectionState extends State<ContactMeFormSection> {
                         width: SizeConfig.blockWidth * 75,
                         child: CustomButton(
                           onPressed: () {
-                            // context.read<HomeBloc>().add(FormSubmitted());
+                            context.read<HomeBloc>().add(
+                              FormSubmitted(
+                                name: _nameController.text,
+                                email: _emailController.text,
+                                subject: _subjectController.text,
+                                message: _messageController.text,
+                              ),
+                            );
                           },
                           padding: EdgeInsets.all(SizeConfig.blockWidth * 1.1),
                           decoration: BoxDecoration(

@@ -1,4 +1,4 @@
-name: Flutter Web Deploy
+name: Flutter Web Deploy with Auto Secrets
 
 on:
   push:
@@ -21,8 +21,19 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Build Flutter Web with secrets
-        run: flutter build web --dart-define=API_KEY=${{ secrets.API_KEY }} --dart-define=SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+      - name: Build Flutter Web with all secrets
+        run: |
+          DART_DEFINES=""
+          for secret in $(env | cut -d= -f1);  do
+            value=$(printenv $secret)
+            DART_DEFINES="$DART_DEFINES --dart-define=${secret}=${value}"
+          done
+          flutter build web $DART_DEFINES
+        env:
+          EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
+          EMAILJS_TEMPLATE_ID: ${{ secrets.EMAILJS_TEMPLATE_ID }}
+          EMAILJS_PUBLIC_KEY: ${{ secrets.EMAILJS_PUBLIC_KEY }}
+          MAILBOXLAYER_API_KEY: ${{ secrets.MAILBOXLAYER_API_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
