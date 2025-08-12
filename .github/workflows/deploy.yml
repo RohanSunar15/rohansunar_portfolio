@@ -23,10 +23,11 @@ jobs:
       - name: Build Flutter Web with all secrets
         run: |
           DART_DEFINES=""
-          for secret in $(env | cut -d= -f1); do
-            value=$(printenv $secret)
-            DART_DEFINES="$DART_DEFINES --dart-define=${secret}=${value}"
-          done
+          DART_DEFINES=""
+          DART_DEFINES="$DART_DEFINES --dart-define=EMAILJS_SERVICE_ID=${EMAILJS_SERVICE_ID}"
+          DART_DEFINES="$DART_DEFINES --dart-define=EMAILJS_TEMPLATE_ID=${EMAILJS_TEMPLATE_ID}"
+          DART_DEFINES="$DART_DEFINES --dart-define=EMAILJS_PUBLIC_KEY=${EMAILJS_PUBLIC_KEY}"
+          DART_DEFINES="$DART_DEFINES --dart-define=MAILBOXLAYER_API_KEY=${MAILBOXLAYER_API_KEY}"
           flutter build web $DART_DEFINES
         env:
           EMAILJS_SERVICE_ID: ${{ secrets.EMAILJS_SERVICE_ID }}
