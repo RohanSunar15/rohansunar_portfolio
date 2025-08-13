@@ -40,7 +40,6 @@ dependencies:
   js: 0.6.5
   emailjs:
   http:
-  flutter_dotenv:
 
 
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
+import 'package:rohansunar_portfolio/core/config/envConfig/env_config.dart';
 
 class EmailService {
   static Future<bool> sendEmail({
@@ -10,11 +10,10 @@ class EmailService {
     required String subject,
     required String message,
   }) async {
-    final serviceId = dotenv.env['EMAILJS_SERVICE_ID'];
-    final templateId = dotenv.env['EMAILJS_TEMPLATE_ID'];
-    final publicKey = dotenv.env['EMAILJS_PUBLIC_KEY'];
-
-    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    final serviceId = EnvConfig.emailJsServiceId;
+    final templateId = EnvConfig.emailJsTemplateId;
+    final publicKey = EnvConfig.emailJsPublicKey;
+    final url = Uri.parse(EnvConfig.emailJsUrl);
 
     final response = await http.post(
       url,
